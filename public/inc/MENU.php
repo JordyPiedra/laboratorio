@@ -48,7 +48,7 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Circuito<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?=URL?>Circuito/ingreso">Ingreso</a>
+                                    <a href="<?=URL?>Circuito/ingreso">Crear</a>
                                 </li>
                                  <li>
                                     <a href="<?=URL?>Circuito/lista">Visualizar</a>
@@ -56,7 +56,40 @@
                                 
                             </ul>
                         </li>
+                      
                         <li>
+                            <a href="#"><i class="fa  fa-wheelchair fa-fw"></i> Pacientes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                     <a href="<?=URL?>Paciente/ingreso">Registrar</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                          <li>
+                            <a href="#"><i class="fa fa-shopping-cart  fa-fw"></i>Productos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                 <li>
+                                    <a href="<?=URL?>Producto/ingreso_E">Registrar Exámen <span class=""></span></a>
+                                </li>
+                                <li>
+                                    <a href="<?=URL?>Producto/ingreso">Registrar Producto <span class=""></span></a>
+                                </li>
+                            </ul>
+                         <li>
+                            <a href="#"><i class="fa fa-hospital-o  fa-fw"></i>Inventario<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                 <li>
+                                    <a href="<?=URL?>Producto/ingreso_E">Registrar Exámen <span class=""></span></a>
+                                </li>
+                                <li>
+                                    <a href="<?=URL?>Producto/ingreso">Registrar Producto <span class=""></span></a>
+                                </li>
+                            </ul>
+
+                        </li>
+                          <li>
                             <a href="#"><i class="fa fa-pencil-square-o  fa-fw "></i> Orden<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -67,16 +100,6 @@
                                 </li>
                                 
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa  fa-wheelchair fa-fw"></i> Pacientes<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                     <a href="<?=URL?>Paciente/ingreso">Ingreso</a>
-                                </li>
-
-                            </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Usuario
@@ -90,36 +113,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-shopping-cart  fa-fw"></i>Productos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="">Registro <span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level ">
-                                            <li>
-                                                <a href="producto.php">Producto</a>
-                                            </li>
-                                            <li>
-                                            <a href="categoria.php">Categoria</a>
-                                            </li>
-                                        </ul>
-
-                                </li>
-                                <li>
-                                    <a href="">Consulta <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                            <li>
-                                                <a href="producto_v.php">Producto</a>
-                                            </li>
-                                            <li>
-                                            <a href="categoria_v.php">Categoria</a>
-                                            </li>
-                                    </ul>
-
-                                </li>
-                            </ul>
-
-                        </li>
+                      
                        
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Cartera de servicios<span class="fa arrow"></span></a>

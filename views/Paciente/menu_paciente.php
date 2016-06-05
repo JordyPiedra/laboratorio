@@ -17,7 +17,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form role="form" id="frmpaciente" name="frmpaciente">
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-lg-3 has-error" id="infoCED">
                                             <label>Cédula*</label>
                           
                                           <input maxlength="10"  name="CED" id="CED" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Ingrese Cédula">
@@ -116,7 +116,7 @@
                                         <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="save_paciente();">
                                                 Guardar
                                             </div>   
-                                         <div class="btn btn-primary" onclick="locarion.reload();">
+                                         <div class="btn btn-primary" onclick=" $('input').val('');">
                                                 Cancelar
                                             </div> </div> 
                                     </form>

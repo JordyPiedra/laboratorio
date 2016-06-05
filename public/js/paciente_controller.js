@@ -1,3 +1,9 @@
+$(document).ready(function() {
+        $('input').attr('disabled',true);  
+      $('#CED').attr('disabled',false);   
+    });
+    
+    
 function save_paciente()
 { 
         
@@ -10,7 +16,18 @@ function save_paciente_response(response){
 }
 
  $( "#CED" ).focusout(function() {
+     
+     if($( "#CED" ).val().length==10)
    cargar_paciente();
+   else{
+        $('input').attr('disabled',true);  
+       $('#CED').attr('disabled',false);   
+       var ced=$('#CED').val();
+       $('input').val('');
+       $('#CED').val(ced);
+        $('#infoCED').addClass("has-error");
+      $('#infoCED').removeClass("has-success");
+   }
 });
 
 function cargar_paciente()
@@ -44,64 +61,18 @@ function cargar_paciente_response(response){
       
       $('#CIR').val(data[0][12]);
       toastr.info('Paciente cédula '+data[0][0]+' Existente!.');
+      $('input').attr('disabled',false);  
+      $('#infoCED').removeClass("has-error");
+      $('#infoCED').addClass("has-success");
+}else
+{
+    toastr.info('Paciente no existente');
+     var ced=$('#CED').val();
+       $('input').val('');
+       $('#CED').val(ced);
+        $('input').attr('disabled',false);  
+         toastr.info('Ingreso de paciente nuevo.');
 }
-    
         
 }
 
-
-function update_table(datos){
-
-    var data = JSON.parse(datos);
-    
-    $("#pacientes_v").empty();          
-     
-    $.each( data, function( key, value) {
-        
-     var fila='<tr class="odd gradeX"><td>'+(key+1)+'</td><td>'+value["CED_PER"]+'</td><td>'+value["NOM_PER"]+'</td><td>'+value["APE_PER"]+'</td><td>'+value["DIR_PER"]+'</td><td>'+value["TEL_PER"]+'</td><td>'+value["NOM_CIR"]+'</td><td align="center" class="center"><button type="button" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#myModal" onClick="buscar('+value["COD_PER"]+');" ><i class="fa fa-list"></i></button>&nbsp;<button type="button"  onClick="eliminar('+value["COD_PER"]+');" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button></td></tr>';
-
-  
-    $("#pacientes_v").append(fila);
-     });
-  
-    }
-function circuitos(datos){
-
-	var data = JSON.parse(datos);
-	
-	$("#COD_CIR").empty();			
-	 var fila='<option selected="true" disabled="disabled" > Seleccione Circuito</option>';
-    
-   	$("#COD_CIR").append(fila);
-
-  	$.each( data, function( key, value) {
-  		
-     var fila='<option value="'+value["COD_CIR"]+'">'+value["NOM_CIR"]+'</option>';
-    
-   	$("#COD_CIR").append(fila);
-   	 });
-
-                   
-}
-
-
-
-// obtener datos paciente en tabla jaz
-function getAllValues(){
-    var CED_PER= $('#CED_PER').val();
-    var NOM_PER= $('#NOM_PER').val();
-    var APE_PER= $('#APE_PER').val();
-    var DIR_PER= $('#DIR_PER').val();
-    var TEL_PER= $('#TEL_PER').val();
-    var COD_CIR= $('#COD_CIR').val();
-    var parametros={
-        "CED_PER":CED_PER,
-        "NOM_PER":NOM_PER,
-        "APE_PER":APE_PER,
-        "DIR_PER":DIR_PER,
-        "TEL_PER":TEL_PER,
-        "COD_CIR":COD_CIR
-    };
-    return parametros;
-}
-     
