@@ -89,7 +89,9 @@ foreach ($this->data as $key => $value) {
     $(document).ready(function() {
        // cargar_circuito();
 
-    
+      $('#dataTables-example').DataTable({
+                responsive: true
+        });    
 
     });
 

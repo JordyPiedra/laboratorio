@@ -1,26 +1,6 @@
-
-  function cargar_circuito()
-{          
-          fajax({},URL+'Circuito/getAll',cargar_circuito_response);  
-}
-function cargar_circuito_response(response){
-        console.log(response);
-              update_table(response);
-                            $('#dataTables-example').DataTable({
-                responsive: true
-        });    
-}
-
-//Crear un circuito
-  function save_circuito()
-{          
-        //console.log($('#formCircuito').serialize());
-          fajax($('#formCircuito').serialize(),URL+'Circuito/insert',save_circuito_response);  
-}
-function save_circuito_response(response){
-        console.log(response);
-        var data = JSON.parse(response);
-        toastr.options = {
+  
+    function optoast(){
+          toastr.options = {
   "closeButton": true,
   "debug": false,
   "newestOnTop": false,
@@ -36,7 +16,30 @@ function save_circuito_response(response){
   "hideEasing": "linear",
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
+}  
+    }
+        
+ 
+  function cargar_circuito()
+{          
+          fajax({},URL+'Circuito/getAll',cargar_circuito_response);  
 }
+function cargar_circuito_response(response){
+        console.log(response);
+              update_table(response);
+                         
+}
+
+//Crear un circuito
+  function save_circuito()
+{          
+        //console.log($('#formCircuito').serialize());
+          fajax($('#formCircuito').serialize(),URL+'Circuito/insert',save_circuito_response);  
+}
+function save_circuito_response(response){
+        console.log(response);
+        var data = JSON.parse(response);
+optoast();
         toastr.info(data['MSG']);
    $('#NOM_CIR').val('');
   $('#DIR_CIR').val('');   
@@ -122,6 +125,14 @@ function eliminar(id,nomb){
 }
 toastr["warning"]('<div><h5>Seguro desesa eliminar el circuito '+nomb+'</h5></div><div><button type="button" id="okBtn" class="btn btn-primary">Cancelar</button><button type="button" id="surpriseBtn" onclick="eliminar_circuito('+id+');" class="btn" style="margin: 0 8px 0 8px">Eliminar</button></div>');
 }
+
 function eliminar_circuito(id){
-        alert('Circuito eliminado');
+        fajax({'IDCIR' : id},URL+'Circuito/delete', eliminar_circuito_response);
+}
+
+function eliminar_circuito_response(response){
+         var data = JSON.parse(response);
+         cargar_circuito();
+         toastr.info(data['MSG']);
+         toastr["error"](data['MSG']);
 }

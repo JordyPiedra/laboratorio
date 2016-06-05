@@ -29,8 +29,9 @@ function setPaciente($PACIENTE)	{
 
 public function select_all()
 		{
-      return $this->db->select('COD_CIR,NOM_CIR,DIR_CIR','CIRCUITO', "EST_CIR=1", PDO::FETCH_NUM);
-				
+      return $this->db->select('CED_PER,HIS_PER,PRINOM_PER,SEGNOM_PER,PRIAPE_PER
+	  							,SEGAPE_PER,FECNAC_PER,DIR_PER,CEL_PER,TEL_PER,SEX_PER,ESTDIS_PER,COD_CIR','PERSONA', false, PDO::FETCH_NUM);
+
 		}
 
 public function selectbyCED($CED_PER)

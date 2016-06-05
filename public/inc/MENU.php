@@ -74,9 +74,7 @@
                                 <li>
                                      <a href="<?=URL?>Paciente/ingreso">Ingreso</a>
                                 </li>
-                                <li>
-                                    <a href="pacientes_v.php">Visualizar</a>
-                                </li>
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -93,7 +91,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-shopping-cart  fa-fw"></i> Productos - Categorias<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-shopping-cart  fa-fw"></i>Productos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="">Registro <span class="fa arrow"></span></a>

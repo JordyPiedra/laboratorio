@@ -48,6 +48,8 @@ function cargar_paciente_response(response){
     
         
 }
+
+
 function update_table(datos){
 
     var data = JSON.parse(datos);
@@ -103,96 +105,3 @@ function getAllValues(){
     return parametros;
 }
      
-     //Crear paciente
-
-function buscar(id){
-
-var parametros={"METODO" : "BUSCAR",
-               "COD_PER" : id};
-          
-              
-            $.ajax({
-                    data: parametros ,
-                    url:   '../clases/cls_paciente.php',
-                    type:  'POST',
-                   // dataType:  'JSON',
-                    success:  function (response) {
-                           var data = JSON.parse(response);
-                          
-
-                            $('#CED_PER').val(data["CED_PER"]);
-                            $('#NOM_PER').val(data["NOM_PER"]);
-                            $('#APE_PER').val(data["APE_PER"]);
-                            $('#DIR_PER').val(data["DIR_PER"]);
-                            $('#TEL_PER').val(data["TEL_PER"]);
-                            $('#COD_CIR').val(data["COD_CIR"]);
-                            $("#btn_guardar").attr("onclick","actualizar("+data["COD_PER"]+");");
-                            
-
-                            
-                    },
-                    error:function (xhr, ajaxOptions, thrownError){
-                            alert(thrownError);
-                    }
-            });
-
-
-}
-//Actualizar circuito
-function actualizar(id){
-
-            var parametros=getAllValues();
-            var parametro2={"COD_PER":id,
-                            "METODO" : "EDITAR"};
-            $.extend(true, parametros, parametro2);
-              
-            
-              
-            $.ajax({
-                    data: parametros ,
-                    url:   '../clases/cls_paciente.php',
-                    type:  'POST',
-                   // dataType:  'JSON',
-                    success:  function (response) {
-                       alert(response);   
-                        location.reload();
-                            
-                    },
-                    error:function (xhr, ajaxOptions, thrownError){
-                            alert(thrownError);
-                    }
-            });
-
-
-}
-
-function alerta_eliminar(id)
-{
-     $("#btn_eliminar").attr("onclick","eliminar("+id+");");
-                            
-}
-function eliminar(id){
-
-            
-            var parametros={"COD_PER":id,
-                            "METODO" : "ELIMINAR"};
-           
-            
-              
-            $.ajax({
-                    data: parametros ,
-                    url:   '../clases/cls_paciente.php',
-                    type:  'POST',
-                   // dataType:  'JSON',
-                    success:  function (response) {
-                        location.reload();
-                      
-                            
-                    },
-                    error:function (xhr, ajaxOptions, thrownError){
-                            alert(thrownError);
-                    }
-            });
-
-
-}

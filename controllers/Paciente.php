@@ -12,14 +12,8 @@ class Paciente extends Controller{
         $this->loadModel();
         $this->view->render($this, "ingreso"); 
     }
-        public function lista(){
-       $this->view->data= $this->model->select_all();
-        $this->view->render($this, "lista"); 
-    }
-    
-    public function getAll(){
-      echo json_encode($this->model->select_all());
-    }
+  
+  
     
     public function getPaciente(){
         if(isset($_POST['CED']))

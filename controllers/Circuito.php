@@ -34,6 +34,12 @@ class Circuito extends Controller{
         else
               echo json_encode($this->model->setCircuito($CIRCUITO));
     }
+    public function delete(){
+        if(isset($_POST['IDCIR']))
+          echo json_encode($this->model->deleteCircuito($_POST['IDCIR']));
+          
+       
+    }
     public function Mayus($variable) {
 		$variable = strtr(strtoupper($variable),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
 		return $variable;

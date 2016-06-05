@@ -10,7 +10,7 @@ Class Circuito_model extends Model {
 function setCircuito($CIRCUITO,$id=false)	{
 		if($id)
 				{
-					if($this->db->update('CIRCUITO', $CIRCUITO,false,'COD_CIR='.$id))
+				 if($this->db->update('CIRCUITO', $CIRCUITO,false,'COD_CIR='.$id))
 						return ['STATE'=>false,"MSG"=>"Circuito ".$CIRCUITO['NOM_CIR'].' Actualizado!'];	
 				 else 
 				 		return ['STATE'=>false,"MSG"=>"Circuito ".$CIRCUITO['NOM_CIR'].' sin cambios!'];
@@ -29,7 +29,12 @@ function setCircuito($CIRCUITO,$id=false)	{
 			
 	}
 
-
+function deleteCircuito($COD_CIR,$EST_CIR='D')	{
+	if($this->db->update('CIRCUITO', ['EST_CIR' => "'".$EST_CIR."'"],false,'COD_CIR='.$COD_CIR))
+						return ['STATE'=>false,"MSG"=>"Circuito ha sido eliminado!"];	
+				 else 
+				 		return ['STATE'=>false,"MSG"=>"Circuito no se pudo eliminar!"];
+	}
 
 public function select_all()
 		{
@@ -42,50 +47,4 @@ public function selectbyID($COD_CIR)
       return $this->db->select('COD_CIR,NOM_CIR,DIR_CIR','CIRCUITO', "EST_CIR='H' AND COD_CIR='$COD_CIR'", PDO::FETCH_NUM);
 				
 		}
-	
-
-function eliminar($COD_CIR)
-		{
-			
-			include_once('consultas_bdd.php');
-				 
-		
-
-		$sql="UPDATE circuito SET EST_CIR=0 WHERE COD_CIR='$COD_CIR'";
-		set_query($sql);
-		echo "Registro Actualizado!";
-					
-		}
-function editar($COD_CIR,$NOM_CIR,$DIR_CIR)
-		{
-			
-		include_once('consultas_bdd.php');
-		
-		$sql="UPDATE circuito SET NOM_CIR='$NOM_CIR' , DIR_CIR = '$DIR_CIR' WHERE COD_CIR='$COD_CIR'";
-		set_query($sql);
-		echo "Registro Actualizado!";
-					
-		}
-
-function REPORTE()
-		{
-			
-			include_once('consultas_bdd.php');
-				 
-		
-
-		$sql="SELECT NOM_CIR, count(COD_ORD) as porcentaje from orden, circuito where orden.COD_CIR=circuito.COD_CIR group by NOM_CIR";
-			
-			$result=get_query($sql);
-
-			
-		}
-
-
-
-
-
-
-
-
 }
