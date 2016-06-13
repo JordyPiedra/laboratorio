@@ -1,6 +1,17 @@
 $(document).ready(function() {
-        $('input').attr('disabled',true);  
+      
+      if(Xx==1)
+{
+  $('#CED').focusout(); 
+  $('#frmpaciente input').attr('disabled',true);
+  $('#frmpaciente select').attr('disabled',true);    
+}else
+{
+    $('#frmpaciente input').attr('disabled',true);  
       $('#CED').attr('disabled',false);   
+    
+      $('#FECHAO').attr('disabled',false);
+}
     });
     
     
@@ -46,6 +57,9 @@ function cargar_paciente_response(response){
       $('#APE1').val(data[0][4]);
       $('#APE2').val(data[0][5]);
       $('#NAC').val(data[0][6]);
+
+    
+      $('#EDAD').val(restaFechas(data[0][6]));
       $('#DIR').val(data[0][7]);
       $('#CEL').val(data[0][8]);
       $('#TEL').val(data[0][9]);
@@ -61,7 +75,7 @@ function cargar_paciente_response(response){
       
       $('#CIR').val(data[0][12]);
       toastr.info('Paciente cédula '+data[0][0]+' Existente!.');
-      $('input').attr('disabled',false);  
+     
       $('#infoCED').removeClass("has-error");
       $('#infoCED').addClass("has-success");
 }else
@@ -70,9 +84,27 @@ function cargar_paciente_response(response){
      var ced=$('#CED').val();
        $('input').val('');
        $('#CED').val(ced);
-        $('input').attr('disabled',false);  
+     
          toastr.info('Ingreso de paciente nuevo.');
 }
-        
+       if($('#frmpaciente').attr('visual')!='si') 
+       $('#frmpaciente input').attr('disabled',false);   
 }
 
+restaFechas = function(f2)
+ {
+
+ var birthday = new Date(f2);
+var today = new Date();
+var years = today.getFullYear() - birthday.getFullYear();
+
+// Reset birthday to the current year.
+birthday.setFullYear(today.getFullYear());
+
+// If the user's birthday has not occurred yet this year, subtract 1.
+if (today < birthday)
+{
+    years--;
+}
+return years;
+ }

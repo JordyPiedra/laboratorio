@@ -46,7 +46,11 @@ public function setEquivalencia($EQUIVALENCIA){
 
 			
 }
-
+public function get_productobyCOD($COD_PRO,$CAT_PRO="'I','R'"){
+	  return $this->db->select('COD_PRO,CODREF_PRO,NOM_PRO,CAN_PRO,DES_PRO
+	  							,CAT_PRO,TIP_PRO,EST_PRO','PRODUCTO', "CODREF_PRO = '$COD_PRO' AND CAT_PRO IN ($CAT_PRO)", PDO::FETCH_NUM);
+	
+}
 
 
 

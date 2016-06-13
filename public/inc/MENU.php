@@ -81,24 +81,37 @@
                             <a href="#"><i class="fa fa-hospital-o  fa-fw"></i>Inventario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                  <li>
-                                    <a href="<?=URL?>Producto/ingreso_E">Registrar Exámen <span class=""></span></a>
-                                </li>
-                                <li>
-                                    <a href="<?=URL?>Producto/ingreso">Registrar Producto <span class=""></span></a>
+                                    <a href="<?=URL?>Inventario/ingreso">Ingreso/Egreso <span class=""></span></a>
                                 </li>
                             </ul>
 
                         </li>
                           <li>
-                            <a href="#"><i class="fa fa-pencil-square-o  fa-fw "></i> Orden<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-pencil-square-o  fa-fw "></i>Orden<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="examen.php">Ingreso</a>
+                                    <a href="<?=URL?>Orden/ingreso">Ingreso</a>
                                 </li>
-                                 <li>
-                                    <a href="orden.php">Consulta</a>
+                              
+                            </ul>
+                        </li>
+                          <li>
+                            <a href="#"><i class="fa fa-inbox  fa-fw "></i>Solicitudes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?=URL?>Orden/revision">Pendientes</a>
                                 </li>
-                                
+                              
+                            </ul>
+                        </li>
+                       
+                         <li>
+                            <a href="#"><i class="fa fa-search   fa-fw "></i>Consulta<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?=URL?>Orden/ingreso">Ingreso</a>
+                                </li>
+                               
                             </ul>
                         </li>
                         <li>

@@ -13,18 +13,6 @@
 <script type="text/javascript" src="<?=URL?>public/js/producto_controller.js"></script>
 <script type="text/javascript" src="<?=URL?>public/js/valid.js"></script>
 
-    <script>
-     
-    $(document).ready(function() {
-       // cargar_circuito();
-
-    
-
-    });
-
-
-        
-</script>
 </body>
 
 </html>

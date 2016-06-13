@@ -169,7 +169,7 @@ class PDOManager extends PDO{
 		}
 				
 		$sql = "UPDATE $table SET $subStmt WHERE $where ;";
-
+        //echo $sql;
 		if($returnSQL)
 			return $sql;
 		

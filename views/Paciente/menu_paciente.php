@@ -72,7 +72,7 @@
                                             <input type="date" id="NAC" name="NAC" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Celular - convencional">
                                             
                                         </div>
-                                        <div class="form-group col-lg-2">
+                                        <div class="form-group col-lg-1">
                                             <label>Sexo</label>
                                             <div class="radio">
                                                 <label>
@@ -100,7 +100,7 @@
                                             </div>
                                         </div>
                                          
-                                        <div class="form-group col-lg-2">
+                                        <div class="form-group col-lg-3">
                                             <label>Circuito</label>
                                             <select id="CIR" name="CIR" class="form-control">
                                                 <?php
