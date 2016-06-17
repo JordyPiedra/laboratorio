@@ -18,23 +18,23 @@
                                     <form role="form" id="formCircuito" name="formCircuito">
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input id="NOM_CIR" name="NOM_CIR" class="form-control" placeholder="Nombre circuito de salud">
+                                            <input id="NOM_CIR" name="NOM_CIR" class="form-control" placeholder="Nombre circuito de salud" required>
                                             
                                         </div>
                                         
                                         <div class="form-group">
                                             <label>Dirección</label>
-                                            <input  id= "DIR_CIR" name= "DIR_CIR" class="form-control" placeholder="Dirección del establecimiento">
+                                            <input  id= "DIR_CIR" name= "DIR_CIR" class="form-control" required placeholder="Dirección del establecimiento">
                                          <br>   
 
                                         
-                                          <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="save_circuito();">
+                                          <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar"  onclick="save_circuito();">
                                                 Guardar
                                             </div>   
                                             <div class="btn btn-primary" data-dismiss="modal" onclick="">
                                                 Cancelar
                                             </div>                                                                             
-                                       
+                                       <input type="submit" styel="display:none;">
                                     </form>
                                 </div>
                                 

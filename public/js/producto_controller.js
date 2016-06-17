@@ -12,7 +12,7 @@ cargar_categorias();
     });
 function save_producto()
 { 
-
+     if( onclick_('#frmproducto'))
    fajax($('#frmproducto').serialize(),URL+'Producto/insert',save_producto_response);  
 
 }

@@ -8,30 +8,16 @@ class Acceso extends Controller{
     }
 
     //Cargamos la vista login
-    public function index(){
+    public function login(){
        
-        $this->view->render($this, "index"); 
+        $this->view->render($this, "login",false); 
     }
 
     //Set View
-    public function setView($id=0){
+    public function auth_login(){
+if(isset($_POST['CED']) && isset($_POST['PAS']))
+         echo json_encode($this->model->checklogin($_POST['CED'],hash('sha256',$_POST['PAS']) ));
 
-        switch ($id) {
-            case 'login':
-                $this->view->render($this, 'login');
-            break;
-
-            case 'register':
-                $this->view->render($this, 'register');
-            break;
-
-            case 'restore-password':
-                $this->view->render($this, 'restore-password');
-            break;
-            
-            default:
-            break;
-        } 
     }
 
     //Controller Requests

@@ -57,6 +57,12 @@ public function selectbyCOD($COD,$EST_ORD="P")
 								  (SELECT NOM_PRO FROM PRODUCTO WHERE COD_PRO = O.COD_PRO) EXAMEN" ,'DETALLE_ORDEN O', "ID_ORD = '$COD' ", PDO::FETCH_NUM);
 
 		}
+		public function updateDet($DETALLE,$DET_ORD){
+		if($this->db->update('DETALLE_ORDEN',$DETALLE,false,"DET_ORD=".$DET_ORD ))
+		return ['STATE'=>true,"MSG"=>""];
+		else
+		return ['STATE'=>true,"MSG"=>"Error al insertar muestras"];
+		}
 
 
 }

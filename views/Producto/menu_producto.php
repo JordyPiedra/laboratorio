@@ -29,18 +29,18 @@
                                         </div>
                                         <div class="form-group col-lg-4">
                                             <label>NOMBRE</label>
-                                            <input id="NOM"  name="NOM"  onkeypress="return soloLetras(event)" class="form-control" placeholder="Nombre de Producto">
+                                            <input id="NOM"  required name="NOM"  onkeypress="return soloLetras(event)" class="form-control" placeholder="Nombre de Producto">
                                             
                                         </div>
                                          <div class="form-group col-lg-6">
                                             <label>DESCRIPCION</label>
-                                            <input  id="DESC" name="DESC"  class="form-control" placeholder="Descripción del producto ">
+                                            <input  id="DESC" required name="DESC"  class="form-control" placeholder="Descripción del producto ">
                                             
                                         </div>
                                      
                                         <div class="form-group col-lg-2"  id="CANTsection" >
                                             <label>CANTIDAD</label>
-                                            <input id="CANT" value="0" name="CANT"  onkeypress="return soloNumeros(event)" class="form-control" placeholder="Cifras enteras">
+                                            <input id="CANT" value="0" required name="CANT"  onkeypress="return soloNumeros(event)" class="form-control" placeholder="Cifras enteras">
                                             
                                         </div>
                                         <div  id="TIPsection" style="display:none;">
@@ -67,7 +67,7 @@
                                          <div class="form-group col-lg-2" id="TIPsection">
                                             <label>CAPACIDAD DE EXÁMENES</label>
                                             
-                                             <input id="CANTE"  name="CANTE"  onkeypress="return soloNumeros(event)" class="form-control" placeholder="Cantidad" >
+                                             <input id="CANTE"   name="CANTE"  onkeypress="return soloNumeros(event)" class="form-control" placeholder="Cantidad" >
                                         </div>
                                      </div>
                                         <div class="form-group col-lg-12">
@@ -78,6 +78,7 @@
                                                 Cancelar
                                             </div> 
                                         </div>
+                                        <input type="submit" style="display:none;">
                                     </form>
                                 </div>
                                 

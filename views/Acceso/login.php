@@ -1,52 +1,72 @@
-<div class="row">
-   <h5 class="center-align light">Iniciar sesión</h5>
-</div>
+<div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Incio de sesión</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" id="frmlogin">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Cédula" min="1" max="9" name="CED" type="text" autofocus required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Contraseña" name="PAS" type="password" value="" required>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Recordarme
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <a href="javascript:();"  onclick ="login();" class="btn btn-lg btn-success btn-block">Ingresar</a>
+                                <input type="submit" style="display:none;">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	 <!-- /.Final -->
+</div></div></div></body>
+       <!-- /.scripts -->
+       
+        <script type="text/javascript">var URL='<?=  URL;?>';</script>
+<script type="text/javascript" src="<?=URL?>public/js/globalajax.js"></script>
 
-<form method="POST">
-<div class="row">
+<script type="text/javascript" src="<?=URL?>public/js/valid.js"></script>
 
-    <div class="col  s12 offset-m2 m8 offset-l4 l4 z-depth-1">
-    <div class="container" style="padding-bottom:100px;">
-      <p class="center-align"><i class="material-icons large" id="accountCircle">account_circle</i></p>
-      <div id="contentLogin">
-      	<div class="input-field">
-		    <i class="material-icons prefix">person</i>
-		    <input name="email" id="email" type="email" maxlength="50" class="validate" required>
-		    <label for="email">Correo electrónico</label>
-		</div>
+    <script>
+    function login(){
+       if( onclick_('#frmlogin'))
+       {
+           console.log($('#frmlogin').serialize());
+           fajax($('#frmlogin').serialize(),URL+'Acceso/auth_login',function(response){
+                 var data = JSON.parse(response);
+                    toastr.info(data['MSG']);
+                    if(data['STATE'])
+                    {
+                    setTimeout(function() {
+                    window.location.href = URL+"Laboratorio/index"
+                    }, 1800);
+                    }
+           });  
+   
+       }
+    }
+     
+    $(document).ready(function() {
+       // cargar_circuito();
+
+    
+
+    });
 
 
-        <div class="input-field">
-		    <i class="material-icons prefix">vpn_key</i>
-	    	<input name="password" id="password" type="password" maxlength="45" class="validate" required>
-	        <label for="password">Contraseña</label>
-		</div>
-
-		<div class="col l12 m12 s12">
-			<div class="col l8 m8 s7">
-			    <a class="bindAction" href="javascript:" section="restore-password">¿Ha olvidado su contraseña?</a>
-			</div>
-
-			<div class="col l4 m4 s5">
-			    <a class="waves-effect waves-light btn blue send">Iniciar</a>
-			</div>
-			<br><br><br>	     
-		</div>
-
-		<div class="col l12 m12 s12">
-			<div class="row">
-			    <div class="divider gray"></div>
-			</div>
-            <a class="bindAction" href="javascript:" section="register"><h6 class="center-align">Crear una nueva cuenta</h6></a>        
-		</div>
-		</di>   
-	</div>
-
-	</div>
- </div>
-
-	<input type="submit" id="subFORM" style="display:none;">
-	<input type="hidden" value="login" name="ID">
-</form>
-  
         
+</script>
+</body>
+
+</html>

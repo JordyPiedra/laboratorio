@@ -163,6 +163,7 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
                                             <th>#</th>
                                             <th>TIPO EXÁMEN</th>
                                             <th>NOMBRE EXÁMEN</th>
+<?=(isset($this->data['ORDEN']))?'<th>BLANCO</th><th>ESTANDAR</th><th>REPETIDO</th><th>NORMAL</th>':'';?>
                                         </tr>
                                     </thead>
                                     <tbody id ="detalle_orden">
@@ -200,7 +201,11 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
                                                 break;
                                         
          }
-          echo '<tr><td>'.($key+1).'</td><td>'.$tipo.'</td><td>'.$value[3].'</td><tr>';
+          echo '<tr><td>'.($key+1).'</td><td>'.$tipo.'</td><td>'.$value[3].'</td>
+          <td> <input type="number" id="BLAN" name="B'.$value[0].'" value="0"></td>
+          <td> <input type="number" id="STAN" name="S'.$value[0].'" value="0"> </td>
+          <td> <input type="number" id="MUES" name="M'.$value[0].'" value="0"></td>
+          <td> <input type="number" id="NORM" name="N'.$value[0].'" value="0"></td><tr>';
      }
   
  }
@@ -236,21 +241,102 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
                                            </textarea>  
                                         </div>
                         
-                                   <div class="btn btn-primary" data-toggle="modal" data-target="#myModal2" id="btn_guardar" onclick="">
+                                    <?=(isset($this->data['ORDEN']))?'':'
+                                    <div class="btn btn-primary" data-toggle="modal" data-target="#myModal2" id="btn_guardar" onclick="">
                                                 Guardar
                                             </div>   
                                             <div class="btn btn-primary" data-dismiss="modal" onclick="cancelar_orden();">
                                                 Cancelar
-                                            </div>     
+                                            </div>    
+                                    ';?>
+                                    
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
-                
+
+
+
+
+             
+ <?php if (isset($this->data['ORDEN'])) 
+ {
+
+echo'
+
+<div class="col-lg-12">
+<div class="panel panel-default">
+<div class="panel-heading">
+Ingreso de materiales de tipo Insumo
+</div>
+
+<!-- /.panel-heading -->
+<div class="panel-body">   
+<input id="addinsumo" list="insumos">
+<datalist id="insumos">
+';
+foreach ($this->data['INSUMOS'] as $key => $value) {
+    echo '
+    <option value="'.$value[2].'-'.$value[4].':'.$value[1].'">
+    ';
+}
+
+
+echo '
+</datalist>
+ <br> 
+  <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>INSUMO</th>
+                                            <th>CANTIDAD</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id ="detalle_insumo">
+
+                                       </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+
+</div></div></div>
+<div class="col-lg-12">
+<div class="panel panel-default">
+<div class="panel-heading">
+Resultado
+</div>
+
+<!-- /.panel-heading -->
+<div class="panel-body">   
+<input class="btn btn-primary"  name="ADJ" id="ADJ" type="file"> 
+<br><div id="EXAM"> ';
+         
+ include_once('resultado.php');
+ echo' </div></div></div></div>
+ 
+ <div class="col-lg-12">
+<div class="panel panel-default">
+<div class="panel-heading">
+Por favor revise resultados, una vez guardados no existen cambios
+</div>
+
+<!-- /.panel-heading -->
+<div class="panel-body">     <div class="btn btn-primary" data-toggle="modal" data-target="#myModal3" id="btn_guardar" onclick="save_result();">
+Guardar
+</div>  <br> 
+</div></div></div>';
+
+ 
+ }
+
+ ?>
+ 
+
             </div>
             <!-- /.row -->
-
 
 
 

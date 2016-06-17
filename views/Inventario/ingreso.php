@@ -29,11 +29,11 @@
                                         </div>
                                         <div class="form-group col-lg-2">
                                             <label>NOMBRE</label>
-                                            <input id="NOM"  name="NOM"  onkeypress="return soloLetras(event)" class="form-control" placeholder="Nombre de Producto" disabled>
+                                            <input id="NOM"  name="NOM"  onkeypress="return soloLetras(event)" class="form-control" required placeholder="Nombre de Producto" disabled>
                                         </div>
                                          <div class="form-group col-lg-4">
                                             <label>DESCRIPCION</label>
-                                            <input  id="DESC" name="DESC"  class="form-control" placeholder="Descripción del producto " disabled>
+                                            <input  id="DESC" name="DESC"  required class="form-control" placeholder="Descripción del producto " disabled>
                                             
                                         </div>
                                      <div  id="TIPsection" style="display:none;">
@@ -58,7 +58,7 @@
                                             <input id="CANT" value="0" name="CANT"  onkeypress="return soloNumeros(event)" class="form-control" placeholder="Cifras enteras" disabled>
                                             
                                         </div>
-                                        
+                                        <input type="submit" style="display:none;">
                  
                                     </form>
                                 </div>

@@ -117,7 +117,7 @@
     </div>
     <!-- /.modal -->
 
- 
+  
 <!-- Modal -->
     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -128,25 +128,18 @@
                 </div>
                 <div class="modal-body">
                 <div class="checkbox">
-            
+                <div class="panel-body">
+                <!-- Nav tabs -->
+                <h4>Seguro desea registrar la orden de exámen</h4>
 
-                                               
-                                          
-              
-              <div class="panel-body">
-                            <!-- Nav tabs -->
-                            <h4>Seguro desea registrar la orden de exámen</h4>
-                            
-                        </div>
-                         <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="insert_orden();">
-                                                Guardar
-                                            </div>   
-                                            <div class="btn btn-primary" data-dismiss="modal" onclick="">
-                                                Cancelar
-                                            </div>     
                 </div>
-
-
+                <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="insert_orden();">
+                Guardar
+                </div>   
+                <div class="btn btn-primary" data-dismiss="modal" onclick="">
+                Cancelar
+                </div>     
+                </div>
                 </div>
                 
             </div>
@@ -155,6 +148,40 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+
+
+<!-- Modal -->
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Resultado</h4>
+                </div>
+                <div class="modal-body">
+                <div class="checkbox">
+                <div class="panel-body">
+                <!-- Nav tabs -->
+                <h4>Seguro desea guardar la respuesta</h4>
+
+                </div>
+                <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="respond_orden();">
+                Guardar
+                </div>   
+                <div class="btn btn-primary" data-dismiss="modal" onclick="">
+                Cancelar
+                </div>     
+                </div>
+                </div>
+                
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
  <!-- /.Final -->
 </div></div></div></body>
        <!-- /.scripts -->

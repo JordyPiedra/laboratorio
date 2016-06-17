@@ -1,22 +1,6 @@
   
     function optoast(){
-          toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-full-width",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}  
+       
     }
         
  
@@ -34,6 +18,7 @@ function cargar_circuito_response(response){
   function save_circuito()
 {          
         //console.log($('#formCircuito').serialize());
+         if( onclick_('#formCircuito'))
           fajax($('#formCircuito').serialize(),URL+'Circuito/insert',save_circuito_response);  
 }
 function save_circuito_response(response){
@@ -108,21 +93,7 @@ function alerta_eliminar(id)
                             
 }
 function eliminar(id,nomb){
-             toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-full-width",
-  "preventDuplicates": false,
-  "onclick": null,
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
+            
 toastr["warning"]('<div><h5>Seguro desesa eliminar el circuito '+nomb+'</h5></div><div><button type="button" id="okBtn" class="btn btn-primary">Cancelar</button><button type="button" id="surpriseBtn" onclick="eliminar_circuito('+id+');" class="btn" style="margin: 0 8px 0 8px">Eliminar</button></div>');
 }
 

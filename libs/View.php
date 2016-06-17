@@ -5,9 +5,10 @@ Class View {
 	public function render($controller, $view ,$layout=true){
 		$controller = get_class($controller);
 		// view/User/index.php
+		include_once HEADER;
 		if($layout)
 		{
-		include_once HEADER;
+		
 		include_once MENU;
 		}
 		

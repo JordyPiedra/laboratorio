@@ -61,3 +61,62 @@ function orden(id){
 $('#ORD').val(id);
 $('#rr input').trigger('click');
 }
+
+function respond_orden(){
+   var ARRA = {'E': $('#detalle_orden input').serializeArray(),
+                'R': $('#EXAM input').serializeArray()}
+ fajax(ARRA,URL+'Orden/response',function(response){
+  var data = JSON.parse(response);
+     console.log(response);
+         toastr.info(data['MSG']);
+
+ });
+}
+$("#addinsumo").on('input', function () {
+    var val = this.value;
+    if($('#insumos').find('option').filter(function(){
+        return this.value.toUpperCase() === val.toUpperCase();        
+    }).length) {
+        //send ajax request
+        var examen= this.value;
+    cod=examen.substring(examen.indexOf(":")+1, examen.length);
+    nom=examen.substring(0,examen.indexOf(":")-1);
+    //$(this).val('');
+    if(cod != '' && nom != '')
+    {
+        if($('#fl'+cod).size()==0)
+        {
+                var fila ="<tr id=fl"+cod+"><td>"+nom+'</td><td><input name ="ins'+cod+'" type="number"></td>';
+                fila+='<td><button type="button"  class="btn btn-warning btn-circle" onClick="'+"$('#fl"+cod+"').remove(); "+'" ><i class="fa fa-times"></i></button></td></tr>';
+                $("#detalle_insumo").append(fila);
+        }
+    }
+    }
+});
+$("#addinsumo").bind('focusout',function(e){
+    console.log(this);
+    
+    var examen= $('#insumos').val();
+     $(this).val(examen);
+    console.log(examen);
+    cod=examen.substring(examen.indexOf(":")+1, examen.length);
+    nom=examen.substring(0,examen.indexOf(":")-1);
+    //$(this).val('');
+    if(cod != '' && nom != '')
+    {
+        if($('#fl'+cod).size()==0)
+        {
+                var fila ="<tr id=fl"+cod+"><td>"+nom+'</td><td><input name ="ins'+cod+'" type="number"></td>';
+                fila+='<td><button type="button"  class="btn btn-warning btn-circle" onClick="'+"$('#fl"+cod+"').remove(); "+'" ><i class="fa fa-times"></i></button></td></tr>';
+                $("#detalle_insumo").append(fila);
+        }
+    }
+    
+     //if(e.keyCode==13){}
+
+});
+
+
+    //detalle_insumo
+    //EXAM
+    //detalle_orden

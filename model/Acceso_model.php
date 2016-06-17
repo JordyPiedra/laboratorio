@@ -3,26 +3,19 @@
 Class Acceso_model extends Model {
     
     public function __construct() {
-      $this->db = parent::getInstance();
+      $this->db = parent::getInstance('MYSQL-LAB'); 
     }
 
-    public function registerCandidate($data, $email) {
-
-      $check = $this->checkCandidate($email);
-
-      if($check){
-        return ["S"=> false, "D" => "Error: Correo electrónico ya registrado"];
-      }else{
-        $query =  $this->db->insert('SSP_ASPIRANTE', $data);
-        if($query){
-          $check = $this->checkCandidate($email);
-          return ["S"=> true, "D" => $check];
-        }   
-        else{
-          return ["S"=> false, "D" => "Error: No es posible registrarse. Por favor, intentalo más tárde..."];
-        }
-        
-      }      
+    public function checklogin($CED,$PAS) {
+//$this->db->insert('USUARIO',['CED_USU'=>"'000000000'", 'TIP_USU' => "'A'", "PAS_USU" =>"'".hash('sha256','administrador')."'"]);
+     $result = $this->db->select('COD_USU,CED_USU','USUARIO',"CED_USU='$CED' AND PAS_USU = '$PAS'", PDO::FETCH_NUM);
+     if(count($result)>0){
+       Session::setValue("COD_USU", $result[0][0]);
+       Session::setValue("CED_USU", $result[0][1]);
+       return ['STATE'=>true,"MSG"=>"Autenticación correcta"];
+     }else {
+       return ['STATE'=>false,"MSG"=>"Usuario o contraseña incorrectos"];
+     }
     }
 
 

@@ -52,7 +52,7 @@
                     <!-- /.panel -->
                 </div>
                 
-<form action="<?=URL.'Orden/ingreso'?>" method="POST" id="rr" target="_blank" style="display:none;">
+<form action="<?=URL.'Orden/antender'?>" method="POST" id="rr" target="_blank" style="display:none;">
 <input type="text" value='' name="ORD"  id="ORD"/>
 <input type="submit">
 </form>
