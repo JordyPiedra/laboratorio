@@ -202,10 +202,10 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
                                         
          }
           echo '<tr><td>'.($key+1).'</td><td>'.$tipo.'</td><td>'.$value[3].'</td>
-          <td> <input type="number" id="BLAN" name="B'.$value[0].'" value="0"></td>
-          <td> <input type="number" id="STAN" name="S'.$value[0].'" value="0"> </td>
-          <td> <input type="number" id="MUES" name="M'.$value[0].'" value="0"></td>
-          <td> <input type="number" id="NORM" name="N'.$value[0].'" value="0"></td><tr>';
+          <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="BLAN'.$value[0].'" name="B'.$value[0].'" value="'.$value[4].'"></td>
+          <td> <input type="number" id="STAN'.$value[0].'" name="S'.$value[0].'" value="'.$value[5].'"> </td>
+          <td> <input type="number" id="MUES'.$value[0].'" name="M'.$value[0].'" value="'.$value[6].'"></td>
+          <td> <input type="number" id="NORM'.$value[0].'" name="N'.$value[0].'" value="'.$value[7].'"></td><tr>';
      }
   
  }
@@ -273,7 +273,7 @@ Ingreso de materiales de tipo Insumo
 
 <!-- /.panel-heading -->
 <div class="panel-body">   
-<input id="addinsumo" list="insumos">
+<input id="addinsumo" list="insumos" placeholder="Buscar insumo">
 <datalist id="insumos">
 ';
 foreach ($this->data['INSUMOS'] as $key => $value) {

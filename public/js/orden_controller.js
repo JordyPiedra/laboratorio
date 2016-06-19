@@ -64,7 +64,8 @@ $('#rr input').trigger('click');
 
 function respond_orden(){
    var ARRA = {'E': $('#detalle_orden input').serializeArray(),
-                'R': $('#EXAM input').serializeArray()}
+                'R': $('#EXAM input').serializeArray(),
+                'CC': Xxcd}
  fajax(ARRA,URL+'Orden/response',function(response){
   var data = JSON.parse(response);
      console.log(response);
@@ -116,6 +117,37 @@ $("#addinsumo").bind('focusout',function(e){
 
 });
 
+function EXAMresponse(){
+     $.each(REQUEST , function( key, value) {
+var inputR= '#'+key;
+    $(inputR).val(value);     
+    
+     });
+   
+}
+
+function MaxMateriales(e,max){
+console.log(e);
+var idname=$(e).attr('name');
+var IDN=idname.substring(1, idname.length);
+in1='#BLAN';
+in2='#STAN';
+in3='#MUES';
+in4='#NORM';
+var n1= parseInt($(in1+IDN).val());
+var n2= parseInt($(in2+IDN).val());
+var n3= parseInt($(in3+IDN).val());
+var n4= parseInt($(in4+IDN).val());
+var sum = n1+n2+n3+n4;
+console.log(sum);
+if(sum>max)
+{
+ var dif =sum-parseInt(max);
+    $(e).val(parseInt($(e).val())-dif);
+   toastr.info('Materiales insuficientes'); 
+}
+
+}
 
     //detalle_insumo
     //EXAM

@@ -31,6 +31,7 @@ class Orden extends Controller{
           if(isset($_POST['ORD']))
         {
             $this->view->data['ORDEN']=$this->model->selectbyCOD($_POST['ORD']); 
+           // $this->view->data['ORDEN'][13]=json_decode((array)$this->view->data['ORDEN'][13],true);
             $this->view->data['DETALLE']=$this->model->selectDETbyCOD($_POST['ORD']); 
 
         }
@@ -50,7 +51,7 @@ class Orden extends Controller{
                     'COD_CIR'=> "'".$_POST['CIR']."'",
                     'COD_PER' => $IDper[0][13]
                     ];  
-                    $KARDEX['OBS_ORD'] = (isset($_POST['OBS']))? "'".$this->Mayus($_POST['OBS'])."'" :"''";
+                    $ORDEN['OBS_ORD'] = (isset($_POST['OBS']))? "'".trim($this->Mayus($_POST['OBS']))."'" :"''";
                     $POST=$_POST;
                     $DETALLE=[];
                     
@@ -120,13 +121,60 @@ class Orden extends Controller{
         }
       }
       if(isset($_POST['R']) ){
+          $ArrayResult="{";
            foreach ($_POST['R'] as $key => $value) {
-           var_dump($value);
-           
+            
+           if(empty($value['value']))
+           $val = "false";
+           else 
+           $val = '"'.$value['value'].'"';
+           $ArrayResult.='"'.$value['name'].'":'.$val.",";
            }
+           $ArrayResult.='"E":"T" }';
+           $this->model->updateOrd(['RES_ORD'=>"'".$ArrayResult."'"],$_POST['CC']);
+           
+           $this->processDescuento($_POST['CC']);
       }
      
   }
+  public function processDescuento($COD_ORD){
+      $result = $this->model->selectDETbyCOD($COD_ORD);
+        
+      foreach ($result as $key => $value) {
+          $total = $value[9]+$value[10];
+         
+          $this->loadModel('Producto');
+          $material=$this->model->SelectEquivalencia($value[2])[0];
+          $material_info=$this->model->get_productobyCOD($material[2]);
+          $material_equi=$material[3];
+          $descuento=0;
+          if($total>=$material_equi)
+          {
+              $descuento = floor($total/$material_equi);
+          }
+          $resta = $descuento*$material_equi;
+          $total-=$resta;
+          if($descuento>0)
+          {
+              $this->loadModel('Inventario');
+              $KARDEX=[
+            'COD_PROD' => "'".$material_info[0][0]."'",    
+            'EST_KARPRO'=>"'E'",
+            'FECORD_KARPRO'=> "NOW()",
+            'SAL_KARPRO'=> 0,
+            'CAN_KARPRO'=>$descuento,
+            'DES_KARPRO'=>"'CONTABILIZACIÓN DE EXAMEN'"
+              ];
+          $result = $this->model->setKardex($KARDEX);
+           
+          }
+          $this->loadModel();
+          $this->model->setPorContabilizar($value[2],$total);
+          
+      }
+
+  }
+
     public function Mayus($variable) {
 		$variable = strtr(strtoupper($variable),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
 		return $variable;
