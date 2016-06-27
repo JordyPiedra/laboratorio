@@ -203,9 +203,9 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
          }
           echo '<tr><td>'.($key+1).'</td><td>'.$tipo.'</td><td>'.$value[3].'</td>
           <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="BLAN'.$value[0].'" name="B'.$value[0].'" value="'.$value[4].'"></td>
-          <td> <input type="number" id="STAN'.$value[0].'" name="S'.$value[0].'" value="'.$value[5].'"> </td>
-          <td> <input type="number" id="MUES'.$value[0].'" name="M'.$value[0].'" value="'.$value[6].'"></td>
-          <td> <input type="number" id="NORM'.$value[0].'" name="N'.$value[0].'" value="'.$value[7].'"></td><tr>';
+          <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="STAN'.$value[0].'" name="S'.$value[0].'" value="'.$value[5].'"> </td>
+          <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="MUES'.$value[0].'" name="M'.$value[0].'" value="'.$value[6].'"></td>
+          <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="NORM'.$value[0].'" name="N'.$value[0].'" value="'.$value[7].'"></td><tr>';
      }
   
  }
@@ -287,6 +287,7 @@ echo '
 </datalist>
  <br> 
   <div class="dataTable_wrapper">
+   <form id="frminsumos_">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -295,10 +296,14 @@ echo '
                                             <th></th>
                                         </tr>
                                     </thead>
+                                   
                                     <tbody id ="detalle_insumo">
 
                                        </tbody>
                                 </table>
+                                                                       <input type="submit" style="display:none;">
+
+                                </form>
                             </div>
                             <!-- /.table-responsive -->
 
@@ -311,7 +316,7 @@ Resultado
 
 <!-- /.panel-heading -->
 <div class="panel-body">   
-<input class="btn btn-primary"  name="ADJ" id="ADJ" type="file"> 
+<input class="btn btn-primary"  style="display:none;" name="ADJ" id="ADJ" type="file"> 
 <br><div id="EXAM"> ';
          
  include_once('resultado.php');
@@ -324,7 +329,7 @@ Por favor revise resultados, una vez guardados no existen cambios
 </div>
 
 <!-- /.panel-heading -->
-<div class="panel-body">     <div class="btn btn-primary" data-toggle="modal" data-target="#myModal3" id="btn_guardar" onclick="save_result();">
+<div class="panel-body">     <div class="btn btn-primary" data-toggle="modal" data-target="#myModal3" id="btn_guardar" onclick="">
 Guardar
 </div>  <br> 
 </div></div></div>';

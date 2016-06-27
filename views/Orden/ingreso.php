@@ -90,7 +90,7 @@
                                 <div class="tab-pane fade" id="S">
                                 <?=$E['S'];?>
                                 </div>
-                                <div class="tab-pane fade" id="U">
+                                <div class="tab-pane fade" id="B">
                                 <?=$E['B'];?>
                                 </div>
                                 <div class="tab-pane fade" id="C">

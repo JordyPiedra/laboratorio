@@ -29,6 +29,9 @@ foreach ($DETALLE as $key => $value) {
 
 	$this->db->insert('DETALLE_ORDEN', ["ID_ORD" =>$COD,'COD_PRO'=>$value]);
 }
+}
+function setInsumoOrden($INSUMO,$VALUE,$COD)	{
+	$this->db->insert('DETALLE_ORDEN', ["ID_ORD" =>$COD,'COD_PRO'=>$INSUMO,'CAN_PRO'=>$VALUE]);
 	
 	}
 

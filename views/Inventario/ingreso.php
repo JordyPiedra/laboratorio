@@ -100,13 +100,13 @@
                                        
                                          <div class="form-group col-lg-5">
                                             <label>DESCRIPCION</label>
-                                            <input  id="KDES" name="KDES"  class="form-control" placeholder="Descripción del movimiento ">
+                                            <input  id="KDES" name="KDES"  class="form-control" required placeholder="Descripción del movimiento ">
                                             
                                         </div>
                                      
                                         <div class="form-group col-lg-1"  id="CANTsection" >
                                             <label>CANTIDAD</label>
-                                            <input id="KCAN" value="0" name="KCAN"  onkeypress="return soloNumeros(event)" class="form-control" placeholder="Cifras enteras">
+                                            <input id="KCAN" value="0" name="KCAN" required onkeypress="return soloNumeros(event)" class="form-control" placeholder="Cifras enteras">
                                             
                                         </div>
                                         <div class="form-group col-lg-12" >
@@ -117,6 +117,8 @@
                                                 Cancelar
                                             </div>
                                             </div>   
+                                              <input type="submit" style="display:none;">
+                 
                                     </form>
                                 </div>
                                 

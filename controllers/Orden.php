@@ -135,9 +135,34 @@ class Orden extends Controller{
            
            $this->processDescuento($_POST['CC']);
       }
+      if(isset($_POST['I']) ){
+            //ARMAR KARDEZ PARA INSUMOS
+              foreach ($_POST['I'] as $key => $value) {
+           $ISN_ID= substr($value['name'],3);
+        
+           $this->loadModel('Producto');
+           $INSUMO=$this->model->get_productobyCOD($ISN_ID);
+           
+           $KARDEX=[
+                    'COD_PROD' => "'".$INSUMO[0][0]."'",    
+            	    'EST_KARPRO'=>"'E'",
+            	    'FECORD_KARPRO'=> "NOW()",
+            	    'SAL_KARPRO'=> 0,
+            	    'CAN_KARPRO'=>$value['value'],
+            	    'DES_KARPRO'=>"'SEGÚN EXAMEN NRO: '"
+            	    ];  
+           $this->loadModel('Inventario');
+           $this->model->setKardex($KARDEX);
+          $this->loadModel();
+          $this->model->setInsumoOrden($INSUMO[0][0],$value['value'],$_POST['CC']);
+           }
+            echo json_encode(['STATE'=>true,"MSG"=>"Ordern atendida correctamente"]);
+       
+      
      
   }
-  public function processDescuento($COD_ORD){
+  }
+  private function processDescuento($COD_ORD){
       $result = $this->model->selectDETbyCOD($COD_ORD);
         
       foreach ($result as $key => $value) {

@@ -64,7 +64,7 @@ function get_producto_response(response){
            {
                    $('#CATR').trigger('click');
                    $('#CATI').attr('checked',false);
-                    $('#CATR').attr('checked',true);
+                   $('#CATR').attr('checked',true);
            }
            else
            {
@@ -76,7 +76,7 @@ function get_producto_response(response){
               kardex(1); 
         }else{
             var  cod =$('#COD').val();   
-            $('#frmproducto input').val('');
+            $('#frmproducto input:text').val('');
             $('#COD').val(cod);    
             if($('#kar').html()=="1")
             {

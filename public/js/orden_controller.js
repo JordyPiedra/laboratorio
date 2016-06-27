@@ -63,7 +63,10 @@ $('#rr input').trigger('click');
 }
 
 function respond_orden(){
+  if( onclick_('#frminsumos_'))
+  {
    var ARRA = {'E': $('#detalle_orden input').serializeArray(),
+            'I': $('#frminsumos_ input').serializeArray(),
                 'R': $('#EXAM input').serializeArray(),
                 'CC': Xxcd}
  fajax(ARRA,URL+'Orden/response',function(response){
@@ -72,6 +75,8 @@ function respond_orden(){
          toastr.info(data['MSG']);
 
  });
+  }
+
 }
 $("#addinsumo").on('input', function () {
     var val = this.value;
@@ -87,7 +92,7 @@ $("#addinsumo").on('input', function () {
     {
         if($('#fl'+cod).size()==0)
         {
-                var fila ="<tr id=fl"+cod+"><td>"+nom+'</td><td><input name ="ins'+cod+'" type="number"></td>';
+                var fila ="<tr id=fl"+cod+"><td>"+nom+'</td><td><input name ="ins'+cod+'" type="number" required></td>';
                 fila+='<td><button type="button"  class="btn btn-warning btn-circle" onClick="'+"$('#fl"+cod+"').remove(); "+'" ><i class="fa fa-times"></i></button></td></tr>';
                 $("#detalle_insumo").append(fila);
         }
@@ -107,7 +112,7 @@ $("#addinsumo").bind('focusout',function(e){
     {
         if($('#fl'+cod).size()==0)
         {
-                var fila ="<tr id=fl"+cod+"><td>"+nom+'</td><td><input name ="ins'+cod+'" type="number"></td>';
+                var fila ="<tr id=fl"+cod+"><td>"+nom+'</td><td><input name ="ins'+cod+'" type="number" required></td>';
                 fila+='<td><button type="button"  class="btn btn-warning btn-circle" onClick="'+"$('#fl"+cod+"').remove(); "+'" ><i class="fa fa-times"></i></button></td></tr>';
                 $("#detalle_insumo").append(fila);
         }

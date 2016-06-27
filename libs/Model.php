@@ -12,7 +12,7 @@ Class Model{
             switch ($SERVER) {
               
                 case 'MYSQL-LAB':
-                    self::$_instance = new PDOManager('mysql', 'localhost', 'root', 'root', 'inv_lab');
+                    self::$_instance = new PDOManager('mysql', 'localhost', 'root', '', 'inv_lab');
                     break;
                 
                 default:

@@ -57,6 +57,7 @@ function savekardex(){
     var RR="I";
      if($('#CATR').prop('checked'))
       var RR="R";
+        if( onclick_('#frmkardex'))
      fajax($('#frmkardex').serialize()+"&IDPRO="+$('#COD').attr("byID")+"&CAT="+RR+"&"+$('#frmproducto').serialize(),URL+'Inventario/insert',savekardex_response);  
 }
 
