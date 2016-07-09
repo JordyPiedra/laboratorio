@@ -55,6 +55,7 @@ function insert_orden_response(response){
         var data = JSON.parse(response);
         $('#ORDEN').val(data['COD']);
          toastr.info(data['MSG']);
+         location.reload();
         }
 
 function orden(id){

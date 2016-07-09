@@ -4,6 +4,10 @@ class Orden extends Controller{
     
     public function __construct() {
         parent::__construct();
+        if(!Session::getValue("CED_USU"))
+        {
+            header('Location: '.URL);
+        }
     }
 
     public function ingreso(){
@@ -93,7 +97,8 @@ class Orden extends Controller{
         }
     }
   public function response(){
-      if(isset($_POST['E']) )
+      if(isset($_POST['E']) &&  isset($_POST['R']) &&  
+          isset($_POST['CC']))
       {
         foreach ($_POST['E'] as $key => $value) {
             $UPDET=[];
@@ -113,15 +118,14 @@ class Orden extends Controller{
               default:
                   # code...
                   break;
-          }
+            }
+        } 
           if(isset($detalle['STATE']) && $detalle['STATE']==false )
           echo json_encode($detalle);
 
           $detalle=null;
-        }
-      }
-      if(isset($_POST['R']) ){
-          $ArrayResult="{";
+
+            $ArrayResult="{";
            foreach ($_POST['R'] as $key => $value) {
             
            if(empty($value['value']))
@@ -131,12 +135,12 @@ class Orden extends Controller{
            $ArrayResult.='"'.$value['name'].'":'.$val.",";
            }
            $ArrayResult.='"E":"T" }';
-           $this->model->updateOrd(['RES_ORD'=>"'".$ArrayResult."'"],$_POST['CC']);
+           $this->model->updateOrd(['RES_ORD'=>"'".$ArrayResult."'",'EST_ORD' => "'A'"],$_POST['CC']);
            
            $this->processDescuento($_POST['CC']);
-      }
-      if(isset($_POST['I']) ){
-            //ARMAR KARDEZ PARA INSUMOS
+
+           //ARMAR KARDEZ PARA INSUMOS
+           if(isset($_POST['I'])){
               foreach ($_POST['I'] as $key => $value) {
            $ISN_ID= substr($value['name'],3);
         
@@ -156,22 +160,29 @@ class Orden extends Controller{
           $this->loadModel();
           $this->model->setInsumoOrden($INSUMO[0][0],$value['value'],$_POST['CC']);
            }
+            }
+
             echo json_encode(['STATE'=>true,"MSG"=>"Ordern atendida correctamente"]);
-       
-      
-     
-  }
+     }else 
+     echo json_encode(['STATE'=>false,"MSG"=>"Datos incompletos"]);
   }
   private function processDescuento($COD_ORD){
       $result = $this->model->selectDETbyCOD($COD_ORD);
-        
+       var_dump($result);
+       
       foreach ($result as $key => $value) {
           $total = $value[9]+$value[10];
          
           $this->loadModel('Producto');
-          $material=$this->model->SelectEquivalencia($value[2])[0];
-          $material_info=$this->model->get_productobyCOD($material[2]);
-          $material_equi=$material[3];
+          $material=$this->model->SelectEquivalencia($value[2]);
+        
+          foreach ($material as $keym => $valuem) {
+              # code...
+
+              //var_dump($this->model->SelectEquivalencia($value[2]));
+          $material_info=$this->model->get_productobyCOD($valuem[2]);
+          $material_equi=$valuem[3];
+        
           $descuento=0;
           if($total>=$material_equi)
           {
@@ -179,6 +190,7 @@ class Orden extends Controller{
           }
           $resta = $descuento*$material_equi;
           $total-=$resta;
+            
           if($descuento>0)
           {
               $this->loadModel('Inventario');
@@ -195,9 +207,11 @@ class Orden extends Controller{
           }
           $this->loadModel();
           $this->model->setPorContabilizar($value[2],$total);
+          }
+          
           
       }
-
+      
   }
 
     public function Mayus($variable) {

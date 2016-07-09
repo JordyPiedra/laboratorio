@@ -20,6 +20,12 @@ if(isset($_POST['CED']) && isset($_POST['PAS']))
 
     }
 
+
+ public function logouth(){
+        Session :: destroy();
+        header('Location:'.URL.'Acceso/login');
+    }
+
     //Controller Requests
     public function controller($id=0){
         $output = null;

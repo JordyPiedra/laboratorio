@@ -1,39 +1,18 @@
-$("#NOM_USU").click(function(){
 
-$("#NICK_USU").val('');
-$("#PASS_USU").val('');
-
-    });
 function save_usuario()
 { 
-
-            var parametros=getAllValues();
-            var parametro2={"METODO" : "CREAR"};
-            $.extend(true, parametros, parametro2);
-             
-            $.ajax({
-                    data: parametros ,
-                    url:   '../clases/cls_usuario.php',
-                    type:  'POST',
-                   // dataType:  'JSON',
-                    success:  function (response) {
-                    	
-                            alert(response);
-                            $('#NOM_USU').val('');
-                            $('#APE_USU').val('');
-                            $('#NICK_USU').val('');
-                            $('#PASS_USU').val('');
-                            $('#ESTA_USU').val('');
-                            
-
-                            
-                    },
-                    error:function (xhr, ajaxOptions, thrownError){
-                            alert(thrownError);
-                    }
-            });
-
+   if( onclick_('#frmuser'))
+   {
+           fajax($('#frmuser').serialize(),URL+'User/insert',function(response){
+           console.log(response);
+                var data = JSON.parse(response);
+        toastr.info(data['MSG']);   
+   });
+   }
+     
 }
+
+
 // obtener datos paciente en tabla jaz
 function getAllValues(){
     var NOM_USU= $('#NOM_USU').val();

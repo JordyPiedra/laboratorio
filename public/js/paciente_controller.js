@@ -17,7 +17,7 @@ $(document).ready(function() {
     
 function save_paciente()
 { 
-        
+if(onclick_('#frmpaciente'))        
  fajax($('#frmpaciente').serialize(),URL+'Paciente/insert',save_paciente_response);  
 }
 

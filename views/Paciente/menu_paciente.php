@@ -20,7 +20,7 @@
                                         <div class="form-group col-lg-3 has-error" id="infoCED">
                                             <label>Cédula*</label>
                           
-                                          <input maxlength="10"  name="CED" id="CED" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Ingrese Cédula">
+                                          <input maxlength="10"  name="CED" id="CED" onkeypress="return soloNumeros(event)" required class="form-control" placeholder="Ingrese Cédula">
                             
                                         
                                         </div>
@@ -31,7 +31,7 @@
 
                                         <div class="form-group col-lg-3">
                                             <label>Primer Nombre*</label>
-                                            <input  id= "NOM1" name= "NOM1" onkeypress="return soloLetras(event)" class="form-control" placeholder="Ingrese Primer Nombre">
+                                            <input  id= "NOM1" name= "NOM1" onkeypress="return soloLetras(event)" class="form-control" required placeholder="Ingrese Primer Nombre">
                                         </div>
                                         
                                         <div class="form-group col-lg-3">
@@ -41,7 +41,7 @@
                                         
                                         <div class="form-group col-lg-3">
                                             <label>Apellido Paterno*</label>
-                                            <input id="APE1"  name="APE1" onkeypress="return soloLetras(event)" class="form-control" placeholder="Ingrese Apellido Paterno">
+                                            <input id="APE1"  name="APE1" onkeypress="return soloLetras(event)" class="form-control" required placeholder="Ingrese Apellido Paterno">
                                             
                                         </div>
                                         <div class="form-group col-lg-3">
@@ -53,35 +53,35 @@
 
                                         <div class="form-group col-lg-6">
                                             <label>Dirección*</label>
-                                            <input id="DIR"   name="DIR"   class="form-control" placeholder="Dirección - barrio urbanización - lote">
+                                            <input id="DIR"   name="DIR"   class="form-control" required placeholder="Dirección - barrio urbanización - lote">
                                             
                                         </div>
 
                                         <div class="form-group col-lg-2">
                                             <label>Teléfono</label>
-                                            <input maxlength="10" id="TEL"   name="TEL"   onkeypress="return soloNumeros(event)" class="form-control" placeholder="Convencional">
+                                            <input maxlength="10" id="TEL"   name="TEL"  required onkeypress="return soloNumeros(event)" class="form-control" placeholder="Convencional">
                                             
                                         </div>
                                         <div class="form-group col-lg-2">
                                             <label>Celular</label>
-                                            <input maxlength="10" id="CEL" name="CEL" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Celular">
+                                            <input maxlength="10" id="CEL" name="CEL" required onkeypress="return soloNumeros(event)" class="form-control" placeholder="Celular">
                                             
                                         </div>
                                         <div class="form-group col-lg-2">
                                             <label>Fecha Nacimiento*</label>
-                                            <input type="date" id="NAC" name="NAC" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Celular - convencional">
+                                            <input type="date" id="NAC" name="NAC" required  onkeypress="return soloNumeros(event)" class="form-control" placeholder="Celular - convencional">
                                             
                                         </div>
                                         <div class="form-group col-lg-1">
                                             <label>Sexo</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="SEX" id="SEXH" value="H" >Hombre
+                                                    <input type="radio" name="SEX" required id="SEXH" value="H" >Hombre
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="SEX" id="SEXM" value="M">Mujer
+                                                    <input type="radio" name="SEX" required id="SEXM" value="M">Mujer
                                                 </label>
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                          
                                         <div class="form-group col-lg-3">
                                             <label>Circuito</label>
-                                            <select id="CIR" name="CIR" class="form-control">
+                                            <select id="CIR" name="CIR" required class="form-control">
                                                 <?php
                                                 
                                                 foreach ($this->data['CIRCUITOS'] as $key => $value) {
@@ -112,6 +112,7 @@
                                                  ?>
                                             </select>
                                         </div>
+                                        <input type="submit" style="display:none;">
                                         <div class="form-group col-lg-12">
                                         <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="save_paciente();">
                                                 Guardar

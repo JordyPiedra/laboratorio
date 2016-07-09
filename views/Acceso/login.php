@@ -50,13 +50,16 @@
                     {
                     setTimeout(function() {
                     window.location.href = URL+"Laboratorio/index"
-                    }, 1800);
+                    }, 700);
                     }
            });  
    
        }
     }
-     
+    $(document).keyup(function(e) {
+if(e.keyCode=='13')
+login();
+});
     $(document).ready(function() {
        // cargar_circuito();
 

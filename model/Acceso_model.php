@@ -8,10 +8,11 @@ Class Acceso_model extends Model {
 
     public function checklogin($CED,$PAS) {
 //$this->db->insert('USUARIO',['CED_USU'=>"'000000000'", 'TIP_USU' => "'A'", "PAS_USU" =>"'".hash('sha256','administrador')."'"]);
-     $result = $this->db->select('COD_USU,CED_USU','USUARIO',"CED_USU='$CED' AND PAS_USU = '$PAS'", PDO::FETCH_NUM);
+     $result = $this->db->select('COD_USU,CED_USU,TIP_USU','USUARIO',"ESTA_USU='H' AND CED_USU='$CED' AND PAS_USU = '$PAS'", PDO::FETCH_NUM);
      if(count($result)>0){
        Session::setValue("COD_USU", $result[0][0]);
        Session::setValue("CED_USU", $result[0][1]);
+       Session::setValue("TIP_USU", $result[0][2]);
        return ['STATE'=>true,"MSG"=>"Autenticación correcta"];
      }else {
        return ['STATE'=>false,"MSG"=>"Usuario o contraseña incorrectos"];

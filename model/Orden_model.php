@@ -15,7 +15,7 @@ function setCabeceraOrden($ORDEN)	{
 	if($this->db->insert('ORDEN', $ORDEN))
 			{
 			$COD=$this->db->select('ID_ORD','ORDEN', "COD_ORD='$SECUENC'", PDO::FETCH_NUM);	
-			return ['STATE'=>true,"COD" =>$COD[0][0],"MSG"=>"Orden ".$SECUENC.' registrada exitosamente!'];
+			return ['STATE'=>true,"COD" =>$SECUENC,"MSG"=>"Orden ".$SECUENC.' registrada exitosamente!'];
 			}	else
 			{
 				return ['STATE'=>false,"MSG"=>"Error al registrar orden"];

@@ -4,6 +4,10 @@ class Producto extends Controller{
     
     public function __construct() {
         parent::__construct();
+        if(!Session::getValue("CED_USU"))
+        {
+            header('Location: '.URL);
+        }
     }
 
     public function ingreso(){
@@ -47,6 +51,12 @@ class Producto extends Controller{
        }else
              echo json_encode(['STATE'=>false,"MSG"=>"Datos incompletos"]);
     }
+
+    public function visualizar(){
+        $this->view->data['PRODUCTO']= $this->model->select_all();
+         $this->view->render($this, "visualizar");
+    }
+
     
     public function get_producto(){
     if(isset($_POST['COD']))

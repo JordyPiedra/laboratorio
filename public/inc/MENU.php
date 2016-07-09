@@ -15,7 +15,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="head.html">Sistema de Inventario</a>
+                <a class="navbar-brand" href="<?=URL?>Laboratorio/index">Sistema de Inventario</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -32,7 +32,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?=URL?>Acceso/logouth"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -44,66 +44,110 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li>
+                       
+                        <?php
+                        
+                        if(Session::getValue('TIP_USU')=='A')
+                        {
+                            echo '
+                            <li>
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Circuito<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?=URL?>Circuito/ingreso">Crear</a>
+                                    <a href="'.URL.'Circuito/ingreso">Crear</a>
                                 </li>
                                  <li>
-                                    <a href="<?=URL?>Circuito/lista">Visualizar</a>
+                                    <a href="'.URL.'Circuito/lista">Visualizar</a>
                                 </li>
                                 
                             </ul>
-                        </li>
-                      
-                        <li>
+                            </li>
+                            ';
+                        }
+                        if(Session::getValue('TIP_USU')=='A' || Session::getValue('TIP_USU')=='E' || Session::getValue('TIP_USU')=='M')
+                        {
+                            echo '
+                            <li>
                             <a href="#"><i class="fa  fa-wheelchair fa-fw"></i> Pacientes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                     <a href="<?=URL?>Paciente/ingreso">Registrar</a>
+                                     <a href="'.URL.'Paciente/ingreso">Registrar</a>
                                 </li>
 
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
+                            </li>
+                            ';
+                        }
+                        if(Session::getValue('TIP_USU')=='A' || Session::getValue('TIP_USU')=='L' )
+                        {
+                            echo '
+                            
                           <li>
                             <a href="#"><i class="fa fa-shopping-cart  fa-fw"></i>Productos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                  <li>
-                                    <a href="<?=URL?>Producto/ingreso_E">Registrar Exámen <span class=""></span></a>
+                                    <a href="'.URL.'Producto/ingreso_E">Registrar Exámen <span class=""></span></a>
                                 </li>
                                 <li>
-                                    <a href="<?=URL?>Producto/ingreso">Registrar Producto <span class=""></span></a>
+                                    <a href="'.URL.'Producto/ingreso">Registrar Producto <span class=""></span></a>
+                                </li>
+                                <li>
+                                    <a href="'.URL.'Producto/visualizar">Lista<span class=""></span></a>
                                 </li>
                             </ul>
                          <li>
                             <a href="#"><i class="fa fa-hospital-o  fa-fw"></i>Inventario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                  <li>
-                                    <a href="<?=URL?>Inventario/ingreso">Ingreso/Egreso <span class=""></span></a>
+                                    <a href="'.URL.'Inventario/ingreso">Ingreso/Egreso <span class=""></span></a>
                                 </li>
                             </ul>
 
                         </li>
-                          <li>
+                            ';
+                        }
+                        
+                         if(Session::getValue('TIP_USU')=='A' || Session::getValue('TIP_USU')=='M' )
+                        {
+                            echo '
+                            
+                            <li>
                             <a href="#"><i class="fa fa-pencil-square-o  fa-fw "></i>Orden<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?=URL?>Orden/ingreso">Ingreso</a>
+                                    <a href="'.URL.'Orden/ingreso">Ingreso</a>
                                 </li>
                               
                             </ul>
-                        </li>
-                          <li>
+                            </li>
+                            ';
+                        }
+                        
+                        if(Session::getValue('TIP_USU')=='A' || Session::getValue('TIP_USU')=='L' )
+                        {
+                            echo '
+                            
+                            <li>
                             <a href="#"><i class="fa fa-inbox  fa-fw "></i>Solicitudes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?=URL?>Orden/revision">Pendientes</a>
+                                    <a href="'.URL.'Orden/revision">Pendientes</a>
                                 </li>
                               
                             </ul>
                         </li>
+                            ';
+                        }
+
+
+                        ?>
+                        
+                      
+                        
+                        
+                        
+                      
                        
                          <li>
                             <a href="#"><i class="fa fa-search   fa-fw "></i>Consulta<span class="fa arrow"></span></a>
@@ -119,7 +163,7 @@
                             <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="usuario.php">Ingreso</a>
+                                      <a href="<?=URL?>User/ingreso">Ingreso</a>
                                 </li>
                                 <li>
                                     <a href="usuario_v.php">Visualizar</a>
@@ -160,7 +204,7 @@
                                     <a href="blank.html">Blank Page</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login Page</a>
+                                    <a href="<?URL?>Acceso/logouth">Login Page</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
