@@ -25,10 +25,5 @@
     define('JSPDF','public/jsPDF-0.9/jspdf.php');
     define('FPDF','public/fpdf/fpdf.php');
 
-    require_once 'vendor/autoload.php' ;
-
-
-
- 
     	
 ?>

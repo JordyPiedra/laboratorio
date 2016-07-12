@@ -20,6 +20,7 @@
                                             <th>#</th>
                                             <th>Código</th>
                                             <th>Nombre</th>
+                                            <th>Cantidad</th>
                                             
                                             
                                         </tr>
@@ -31,6 +32,7 @@ foreach ($this->data['PRODUCTO'] as $key => $value) {
                     <td>'.($key+1).'</td>
                     <td>'.$value[1].'</td>
                     <td>'.$value[2].'</td>
+                    <td>'.$value[3].'</td>
                     ';
 
 }

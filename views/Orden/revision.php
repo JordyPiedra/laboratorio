@@ -30,10 +30,10 @@
                                     <tbody id ="examen">
                                     <?php
                                     foreach ($this->data['ORDEN'] as $key => $value) {
-                                        if($value[4]=='R')
-                                        $fila = '<button type="button"  onClick="orden('.$value[0].');" class="btn btn-success"><i class="fa fa-flask"></i>Ver resultado</button>';
+                                        if($value[4]=='A')
+                                        $fila = '<button type="button"  onClick="orden('.$value[0].',1);" class="btn btn-success"><i class="fa fa-flask"></i>Ver resultado</button>';
                                         else 
-                                        $fila= '<button type="button"  onClick="orden('.$value[0].');" class="btn btn-danger"><i class="fa fa-flask"></i>Sin resultado</button>';
+                                        $fila= '<button type="button"  onClick="orden('.$value[0].',0);" class="btn btn-danger"><i class="fa fa-flask"></i>Sin resultado</button>';
                                         
                                      echo '<tr>
                                             <td>'.($key+1).'</td>
@@ -61,7 +61,10 @@
 <input type="text" value='' name="ORD"  id="ORD"/>
 <input type="submit">
 </form>
-
+<form action="<?=URL.'Orden/resultado'?>" method="POST" id="rr1" target="_blank" style="display:none;">
+<input type="text" value='' name="ORD"  id="ORD1"/>
+<input type="submit">
+</form>
 
 
 

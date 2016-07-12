@@ -58,9 +58,15 @@ function insert_orden_response(response){
          location.reload();
         }
 
-function orden(id){
+function orden(id,aux){
+    if(aux==1){
+$('#ORD1').val(id);
+$('#rr1 input').trigger('click');
+    }else{
 $('#ORD').val(id);
 $('#rr input').trigger('click');
+    }
+
 }
 
 function respond_orden(){

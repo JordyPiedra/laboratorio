@@ -29,8 +29,9 @@ function setProducto($PRODUCTO)	{
 
 public function select_all($CAT_PRO='%')
 		{
-      return $this->db->select('COD_PRO,CODREF_PRO,NOM_PRO,CAN_PRO,DES_PRO
-	  							,CAT_PRO,TIP_PRO,EST_PRO','PRODUCTO', "CAT_PRO LIKE '$CAT_PRO'", PDO::FETCH_NUM);
+      return $this->db->select("COD_PRO,CODREF_PRO,NOM_PRO,
+	  IF(CAT_PRO = 'E', CANT_EXAMEN(COD_PRO), CAN_PRO),DES_PRO
+	  							,CAT_PRO,TIP_PRO,EST_PRO",'PRODUCTO', "CAT_PRO LIKE '$CAT_PRO'", PDO::FETCH_NUM);
 
 		}
 

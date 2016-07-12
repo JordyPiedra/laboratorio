@@ -34,13 +34,40 @@ class Orden extends Controller{
 
           if(isset($_POST['ORD']))
         {
-            $this->view->data['ORDEN']=$this->model->selectbyCOD($_POST['ORD']); 
+            
+            $this->view->data['ORDEN']=$this->model->selectbyCOD($_POST['ORD']);
+            //var_dump ( $this->view->data['ORDEN']); 
            // $this->view->data['ORDEN'][13]=json_decode((array)$this->view->data['ORDEN'][13],true);
             $this->view->data['DETALLE']=$this->model->selectDETbyCOD($_POST['ORD']); 
 
         }
         $this->view->render($this, "ingreso",false); 
     }
+
+    public function resultado(){
+        $this->loadModel('Circuito');
+        $this->view->data['CIRCUITOS']=$this->model->select_all() ;
+        $this->loadModel();
+        
+        $this->loadModel('Producto');
+        $this->view->data['EXAMENES']=$this->model->select_all('E') ;
+        $this->view->data['INSUMOS']=$this->model->select_all('I') ;
+        $this->loadModel();
+        $this->view->data['DETALLE']=[];
+
+          if(isset($_POST['ORD']))
+        {
+            
+            $this->view->data['ORDEN']=$this->model->selectbyCOD($_POST['ORD'],'A');
+            //var_dump ( $this->view->data['ORDEN']); 
+           // $this->view->data['ORDEN'][13]=json_decode((array)$this->view->data['ORDEN'][13],true);
+            $this->view->data['DETALLE']=$this->model->selectDETbyCOD($_POST['ORD']); 
+
+        }
+        $this->view->render($this, "ingreso",false); 
+    }
+
+
   public function insert(){
         if(isset($_POST['FECHAO']) && !empty($_POST['FECHAO']) && isset($_POST['CED']) && isset($_POST['CIR']))
             {
@@ -139,7 +166,7 @@ class Orden extends Controller{
            foreach ($_POST['R'] as $key => $value) {
             
            if(empty($value['value']))
-           $val = "false";
+           $val = '""';
            else 
            $val = '"'.$value['value'].'"';
            $ArrayResult.='"'.$value['name'].'":'.$val.",";
@@ -178,7 +205,6 @@ class Orden extends Controller{
   }
   private function processDescuento($COD_ORD){
       $result = $this->model->selectDETbyCOD($COD_ORD);
-       var_dump($result);
        
       foreach ($result as $key => $value) {
           $total = $value[9]+$value[10];
