@@ -53,7 +53,8 @@ class Orden extends Controller{
                     $ORDEN=[
                     'FECMUE_ORD' => "'".$_POST['FECHAO']."'",    
                     'COD_CIR'=> "'".$_POST['CIR']."'",
-                    'COD_PER' => $IDper[0][13]
+                    'COD_PER' => $IDper[0][13],
+                    'COD_USUCRE' => Session::getValue('CED_USU')
                     ];  
                     $ORDEN['OBS_ORD'] = (isset($_POST['OBS']))? "'".trim($this->Mayus($_POST['OBS']))."'" :"''";
                     $POST=$_POST;
@@ -84,6 +85,15 @@ class Orden extends Controller{
 
         public function revision(){
         $this->view->data['ORDEN']=$this->model->select_all('P') ;
+        $this->view->render($this, "revision"); 
+    }
+
+    public function lista(){
+        $this->view->data['ORDEN']=$this->model->select_all('%',Session::getValue('CED_USU')) ;
+        $this->view->render($this, "revision"); 
+    }
+    public function atendidas(){
+        $this->view->data['ORDEN']=$this->model->select_all('R',Session::getValue('CED_USU')) ;
         $this->view->render($this, "revision"); 
     }
 

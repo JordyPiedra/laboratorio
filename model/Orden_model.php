@@ -15,7 +15,7 @@ function setCabeceraOrden($ORDEN)	{
 	if($this->db->insert('ORDEN', $ORDEN))
 			{
 			$COD=$this->db->select('ID_ORD','ORDEN', "COD_ORD='$SECUENC'", PDO::FETCH_NUM);	
-			return ['STATE'=>true,"COD" =>$SECUENC,"MSG"=>"Orden ".$SECUENC.' registrada exitosamente!'];
+			return ['STATE'=>true,"COD" =>$COD[0][0],"MSG"=>"Orden ".$SECUENC.' registrada exitosamente!'];
 			}	else
 			{
 				return ['STATE'=>false,"MSG"=>"Error al registrar orden"];
@@ -36,12 +36,12 @@ function setInsumoOrden($INSUMO,$VALUE,$COD)	{
 	}
 
 
-public function select_all($EST_ORD="%")
+public function select_all($EST_ORD="%",$COD_USUCRE='%')
 		{
       return $this->db->select("ID_ORD,COD_ORD,COD_CIR,COD_PER,EST_ORD
 	  							,OBS_ORD,FECMUE_ORD,FECCRE_ORD,FECRES_ORD,COD_USUCRE,COD_USURES,
 								  (SELECT CONCAT(PRINOM_PER, ' ', PRIAPE_PER) FROM PERSONA WHERE COD_PER = O.COD_PER) PACIENTE,
-								  (SELECT CED_PER PRIAPE_PER FROM PERSONA WHERE COD_PER = O.COD_PER) CEDULA",'ORDEN O', "EST_ORD = '$EST_ORD'", PDO::FETCH_NUM);
+								  (SELECT CED_PER PRIAPE_PER FROM PERSONA WHERE COD_PER = O.COD_PER) CEDULA",'ORDEN O', "EST_ORD LIKE '$EST_ORD' AND COD_USUCRE LIKE '$COD_USUCRE'", PDO::FETCH_NUM);
 
 		}
 

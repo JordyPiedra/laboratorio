@@ -118,6 +118,9 @@
                                 <li>
                                     <a href="'.URL.'Orden/ingreso">Ingreso</a>
                                 </li>
+                                 <li>
+                                    <a href="'.URL.'Orden/lista">Lista</a>
+                                </li>
                               
                             </ul>
                             </li>

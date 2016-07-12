@@ -30,13 +30,18 @@
                                     <tbody id ="examen">
                                     <?php
                                     foreach ($this->data['ORDEN'] as $key => $value) {
+                                        if($value[4]=='R')
+                                        $fila = '<button type="button"  onClick="orden('.$value[0].');" class="btn btn-success"><i class="fa fa-flask"></i>Ver resultado</button>';
+                                        else 
+                                        $fila= '<button type="button"  onClick="orden('.$value[0].');" class="btn btn-danger"><i class="fa fa-flask"></i>Sin resultado</button>';
+                                        
                                      echo '<tr>
                                             <td>'.($key+1).'</td>
                                             <td>'.$value[1].'</td>
                                             <td>'.$value[12].'</td>
                                             <td>'.$value[11].'</td>
                                             <td>'.date($value[6]).'</td>
-                                            <td><button type="button"  class="btn  btn-primary btn-circle" onClick="orden('.$value[0].'); " ><i class="fa fa-flask"></i></button></td>
+                                            <td>'.$fila.'</td>
                                             </tr>
                                      ';
                                     }

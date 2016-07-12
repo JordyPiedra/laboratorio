@@ -5,6 +5,10 @@ class Acceso extends Controller{
     public function __construct() {
         
         parent::__construct();
+        if(Session::getValue("CED_USU"))
+        {
+            header('Location: '.URL.'Laboratorio/index');
+        }
     }
 
     //Cargamos la vista login
