@@ -1,0 +1,42 @@
+ <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+   
+    
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script type="text/javascript">
+
+		// Solo permite ingresar numeros.
+
+		function soloNumeros(e){
+
+		var key = window.Event ? e.which : e.keyCode
+
+		return (key >= 48 && key <= 57 || key >=0 && key <=32)
+
+		}
+
+	</script>
+
+	<script type="text/javascript">
+
+		// Solo permite ingresar letras
+		function soloLetras(e){
+
+		var key = window.Event ? e.which : e.keyCode
+
+		return (key >= 65 && key <= 255 || key >=0 && key <=32)
+
+		}
+
+	</script>
+	
