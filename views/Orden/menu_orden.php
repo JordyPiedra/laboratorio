@@ -322,7 +322,12 @@ Resultado
  include_once('resultado.php');
  echo' </div></div></div></div>
  
- <div class="col-lg-12">
+';
+
+ 
+ }
+if(Session::getValue('TIP_USU')=='L' || Session::getValue('TIP_USU')=='A'){
+    echo ' <div class="col-lg-12">
 <div class="panel panel-default">
 <div class="panel-heading">
 Por favor revise resultados, una vez guardados no existen cambios
@@ -333,10 +338,7 @@ Por favor revise resultados, una vez guardados no existen cambios
 Guardar
 </div>  <br> 
 </div></div></div>';
-
- 
- }
-
+}
  ?>
  
 

@@ -26,7 +26,7 @@
                                         </div>
                                         <div class="form-group col-lg-3">
                                             <label>Historia Clínica*</label>
-                                            <input maxlength="10"  name="HIST" id="HIST" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Ingrese Historia Clínica">
+                                            <input maxlength="10"  name="HIST" id="HIST" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Ingrese Historia Clínica" required>
                                         </div>
 
                                         <div class="form-group col-lg-3">

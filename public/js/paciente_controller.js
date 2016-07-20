@@ -82,7 +82,7 @@ function cargar_paciente_response(response){
 {
     toastr.info('Paciente no existente');
      var ced=$('#CED').val();
-       $('input').val('');
+       $('input:text').val('');
        $('#CED').val(ced);
      
          toastr.info('Ingreso de paciente nuevo.');
