@@ -80,6 +80,9 @@ function respond_orden(){
   var data = JSON.parse(response);
      console.log(response);
          toastr.info(data['MSG']);
+         if(data['STATE']){
+             window.close();
+         }
 
  });
   }

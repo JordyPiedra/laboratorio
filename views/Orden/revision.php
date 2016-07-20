@@ -2,7 +2,7 @@
  <div class="row">
 
                 <div class="col-lg-12">
-                    <h1 class="page-header">Exámenes Pendientes</h1>
+                    <h1 class="page-header">Exámenes Pendientes<i onclick ="location.reload();" class="fa  fa-refresh fa-fw"></i></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
