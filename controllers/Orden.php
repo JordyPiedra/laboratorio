@@ -175,7 +175,7 @@ class Orden extends Controller{
            $ArrayResult.='"'.$value['name'].'":'.$val.",";
            }
            $ArrayResult.='"E":"T" }';
-           $this->model->updateOrd(['RES_ORD'=>"'".$ArrayResult."'",'EST_ORD' => "'A'"],$_POST['CC']);
+           $this->model->updateOrd(['RES_ORD'=>"'".$ArrayResult."'",'EST_ORD' => "'A'",'FECRES_ORD'=>'NOW()','COD_USURES'=>"'".Session::getValue("CED_USU")."'"],$_POST['CC']);
            
            $this->processDescuento($_POST['CC']);
 

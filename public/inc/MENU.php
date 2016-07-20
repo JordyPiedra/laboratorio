@@ -152,15 +152,6 @@
                         
                       
                        
-                         <li>
-                            <a href="#"><i class="fa fa-search   fa-fw "></i>Consulta<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?=URL?>Orden/ingreso">Ingreso</a>
-                                </li>
-                               
-                            </ul>
-                        </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Usuario
                             <span class="fa arrow"></span></a>
