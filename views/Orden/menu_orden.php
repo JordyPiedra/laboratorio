@@ -163,7 +163,7 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
                                             <th>#</th>
                                             <th>TIPO EXÁMEN</th>
                                             <th>NOMBRE EXÁMEN</th>
-<?=(isset($this->data['ORDEN']))?'<th>BLANCO</th><th>ESTANDAR</th><th>REPETIDO</th><th>NORMAL</th>':'';?>
+<?=(isset($this->data['ORDEN']) && !isset($this->data['BLOCK']))?'<th>BLANCO</th><th>ESTANDAR</th><th>REPETIDO</th><th>NORMAL</th>':'';?>
                                         </tr>
                                     </thead>
                                     <tbody id ="detalle_orden">
@@ -201,12 +201,15 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
                                                 break;
                                         
          }
-          echo '<tr><td>'.($key+1).'</td><td>'.$tipo.'</td><td>'.$value[3].'</td>
-          <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="BLAN'.$value[0].'" name="B'.$value[0].'" value="'.$value[4].'"></td>
+          echo '<tr><td>'.($key+1).'</td><td>'.$tipo.'</td><td>'.$value[3].'</td>';
+          if(!isset($this->data['BLOCK'])){
+              echo '<td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="BLAN'.$value[0].'" name="B'.$value[0].'" value="'.$value[4].'"></td>
           <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="STAN'.$value[0].'" name="S'.$value[0].'" value="'.$value[5].'"> </td>
           <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="MUES'.$value[0].'" name="M'.$value[0].'" value="'.$value[6].'"></td>
           <td> <input type="number" onchange ="MaxMateriales(this,'.$value[8].');" id="NORM'.$value[0].'" name="N'.$value[0].'" value="'.$value[7].'"></td><tr>';
-     }
+          ;
+          }
+               }
   
  }
  }                                           
