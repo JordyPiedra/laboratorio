@@ -326,7 +326,7 @@ Resultado
 
  
  }
-if(Session::getValue('TIP_USU')=='L' || Session::getValue('TIP_USU')=='A' && $this->data['OP']){
+if(Session::getValue('TIP_USU')=='L' || Session::getValue('TIP_USU')=='A' && isset($this->data['OP']) && !isset($this->data['BLOCK'])){
     echo ' <div class="col-lg-12">
 <div class="panel panel-default">
 <div class="panel-heading">

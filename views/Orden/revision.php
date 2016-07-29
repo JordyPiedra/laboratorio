@@ -57,7 +57,7 @@
                     <!-- /.panel -->
                 </div>
                 
-<form action="<?=URL.'Orden/antender'?>" method="POST" id="rr" target="_blank" style="display:none;">
+<form action="<?= (isset($this->data['url_']))? URL.'Orden/atender':URL.'Orden/generadas'?>" method="POST" id="rr" target="_blank" style="display:none;">
 <input type="text" value='' name="ORD"  id="ORD"/>
 <input type="submit">
 </form>

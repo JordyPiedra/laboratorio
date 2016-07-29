@@ -142,7 +142,26 @@
                         </li>
                             ';
                         }
-
+                          if(Session::getValue('TIP_USU')=='A')
+                        {
+                            echo '
+                            
+                             <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Usuario
+                            <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                      <a href="'.URL.'User/ingreso">Ingreso</a>
+                                </li>
+                                <li>
+                                    <a href="usuario_v.php">Visualizar</a>
+                                </li>
+                            </ul>
+                        </li>
+                      
+                            ';
+                        }
+   
 
                         ?>
                         
@@ -152,19 +171,7 @@
                         
                       
                        
-                        <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Usuario
-                            <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                      <a href="<?=URL?>User/ingreso">Ingreso</a>
-                                </li>
-                                <li>
-                                    <a href="usuario_v.php">Visualizar</a>
-                                </li>
-                            </ul>
-                        </li>
-                      
+                       
                        
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Cartera de servicios<span class="fa arrow"></span></a>

@@ -21,7 +21,7 @@ class Orden extends Controller{
         $this->view->data['DETALLE']=[];
         $this->view->render($this, "ingreso"); 
     }
-   public function antender(){
+   public function atender(){
         $this->loadModel('Circuito');
         $this->view->data['CIRCUITOS']=$this->model->select_all() ;
         $this->loadModel();
@@ -43,6 +43,31 @@ class Orden extends Controller{
         }
 
         $this->view->data['OP']=true;
+        $this->view->render($this, "ingreso",false); 
+    }
+      public function generadas(){
+        $this->loadModel('Circuito');
+        $this->view->data['CIRCUITOS']=$this->model->select_all() ;
+        $this->loadModel();
+        
+        $this->loadModel('Producto');
+        $this->view->data['EXAMENES']=$this->model->select_all('E') ;
+        $this->view->data['INSUMOS']=$this->model->select_all('I') ;
+        $this->loadModel();
+        $this->view->data['DETALLE']=[];
+        
+          if(isset($_POST['ORD']))
+        {
+            
+            $this->view->data['ORDEN']=$this->model->selectbyCOD($_POST['ORD']);
+            //var_dump ( $this->view->data['ORDEN']); 
+           // $this->view->data['ORDEN'][13]=json_decode((array)$this->view->data['ORDEN'][13],true);
+            $this->view->data['DETALLE']=$this->model->selectDETbyCOD($_POST['ORD']); 
+
+        }
+
+        $this->view->data['OP']=true;
+        $this->view->data['BLOCK']=true;
         $this->view->render($this, "ingreso",false); 
     }
 
@@ -67,6 +92,7 @@ class Orden extends Controller{
 
         }
         $this->view->data['OP']=false;
+        $this->view->data['BLOCK']=true;
         $this->view->render($this, "ingreso",false); 
     }
 
@@ -115,6 +141,7 @@ class Orden extends Controller{
 
         public function revision(){
         $this->view->data['ORDEN']=$this->model->select_all('P') ;
+        $this->view->data['url_']='atender';
         $this->view->render($this, "revision"); 
     }
 
