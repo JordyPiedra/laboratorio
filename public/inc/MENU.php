@@ -161,7 +161,16 @@
                       
                             ';
                         }
-   
+                        if(Session::getValue('TIP_USU')=='A' || Session::getValue('TIP_USU')=='L' )
+                        {
+                            echo '
+                              <li>
+                            <a href="'.URL.'Reportes/index"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
+                           
+                            <!-- /.nav-second-level -->
+                        </li>
+                            ';
+                        }
 
                         ?>
                         
@@ -188,16 +197,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="report01.php">Ordenes</a>
-                                </li>
-                                
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                      
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
