@@ -2,7 +2,7 @@
  <div class="row">
 
                 <div class="col-lg-12">
-                    <h1 class="page-header">Exámenes Pendientes<i onclick ="location.reload();" class="fa  fa-refresh fa-fw"></i></h1>
+                    <h1 class="page-header">Reporte<i onclick ="location.reload();" class="fa  fa-refresh fa-fw"></i></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -31,11 +31,19 @@
                                         {
                                             echo ' <th>#</th>
                                             <th>CIRCUITO</th>
-                                            <th>CANTIDAD</th>
+                                            
                                             <th>CODIGO</th>
                                             <th>EXAMEN</th>
-                                            
+                                            <th>CANTIDAD</th>
                                             <th>DOCTOR</th>'
+                                            ;
+                                        }
+                                         if($this->data['T']==3)
+                                        {
+                                            echo ' <th>#</th>
+                                            <th>CIRCUITO</th>
+                                            <th>CANTIDAD DE ÓRDENES</th>'
+                                         
                                             ;
                                         }
                                             ?>
@@ -71,8 +79,19 @@
                                             </tr>
                                             ';
                                         }
-                                   
+
                                     }
+
+                                        if($this->data['T']==3)
+                                        {
+                                           foreach ($this->data['E'] as $key => $value) {
+                                                                   echo '<tr>
+                                            <td>'.($key+1).'</td>
+                                            <td>'.$value[0].'</td>
+                                            <td>'.$value[1].'</td>
+                                            </tr>
+                                            ';
+                                        }}
                                     ?>
                                     </tbody>
                                 </table>

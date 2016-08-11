@@ -30,8 +30,9 @@
                                         <div class="form-group col-lg-4">
                                             <label>Reporte</label>
                                             <select required id="TIP" name="TIP" class="form-control">
-                                            <option value="2">Por Circuito</option>
+                                            <option value="2">Por Profesional</option>
                                             <option value ="1">Por Exámen</option>
+                                            <option value ="3">Por Circuito</option>
                                             </select>
                                         </div>
   <div class="form-group col-lg-12">

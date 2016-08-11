@@ -110,7 +110,10 @@
                                             
                                         </div>
                                         <div class="form-group col-lg-12" >
-                                    <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="savekardex();">
+                                    <div class="btn btn-primary" id="btn_guardar" onclick="verificarform();">
+                                                Guardar
+                                            </div>   
+                                              <div class="btn btn-primary" style="display:none;"  data-toggle="modal" data-target="#myModal2" id="btn_guardar_" onclick="">
                                                 Guardar
                                             </div>   
                                             <div class="btn btn-primary" data-dismiss="modal" onclick="">
@@ -171,6 +174,38 @@
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
+
+  
+<!-- Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Inventario</h4>
+                </div>
+                <div class="modal-body">
+                <div class="checkbox">
+                <div class="panel-body">
+                <!-- Nav tabs -->
+                <h4>Seguro desea registrar la transacción</h4>
+
+                </div>
+                <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="savekardex();">
+                Guardar
+                </div>   
+                <div class="btn btn-primary" data-dismiss="modal" onclick="">
+                Cancelar
+                </div>     
+                </div>
+                </div>
+                
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
 
 

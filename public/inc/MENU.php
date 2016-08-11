@@ -153,9 +153,6 @@
                                 <li>
                                       <a href="'.URL.'User/ingreso">Ingreso</a>
                                 </li>
-                                <li>
-                                    <a href="usuario_v.php">Visualizar</a>
-                                </li>
                             </ul>
                         </li>
                       
@@ -180,36 +177,7 @@
                         
                       
                        
-                       
-                       
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Cartera de servicios<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="servicio.php">Ingreso servicio</a>
-                                </li>
-                                <li>
-                                    <a href="tipo_servicio.php">Tipo servicio</a>
-                                </li>
-                                <li>
-                                    <a href="servicio_v.php">Visualizar</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
                       
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="<?URL?>Acceso/logouth">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

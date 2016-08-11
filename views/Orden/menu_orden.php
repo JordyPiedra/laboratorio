@@ -265,7 +265,7 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
              
  <?php if (isset($this->data['ORDEN'])) 
  {
-
+if(!isset($this->data['BLOCK'])){
 echo'
 
 <div class="col-lg-12">
@@ -310,7 +310,9 @@ echo '
                             </div>
                             <!-- /.table-responsive -->
 
-</div></div></div>
+</div></div></div>';
+}
+echo '
 <div class="col-lg-12">
 <div class="panel panel-default">
 <div class="panel-heading">

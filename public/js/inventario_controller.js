@@ -52,12 +52,18 @@ console.log(response);
      });
 }
 
+function verificarform(){
+if(onclick_('#frmkardex'))
+{
+    $('#btn_guardar_').trigger('click');
+}
+}
+
 function savekardex(){
     if($('#CATI').prop('checked'))
     var RR="I";
      if($('#CATR').prop('checked'))
       var RR="R";
-        if( onclick_('#frmkardex'))
      fajax($('#frmkardex').serialize()+"&IDPRO="+$('#COD').attr("byID")+"&CAT="+RR+"&"+$('#frmproducto').serialize(),URL+'Inventario/insert',savekardex_response);  
 }
 

@@ -32,7 +32,14 @@ public function general(){
           //echo '<pre>';
           //var_dump($this->view->data['E']);
      }
-    
+      if($_POST['TIP']==3)
+     {
+          //$this->data['E']= $this->model->topExamen($_POST['FINI'],$_POST['FFIN']);
+           $this->view->data['T']=3;
+          $this->view->data['E']= $this->model->examen_circuito('2016-01-01','2016-12-31');
+          //echo '<pre>';
+          //var_dump($this->view->data['E']);
+     }
       $this->view->render($this, "general");
     }
      
