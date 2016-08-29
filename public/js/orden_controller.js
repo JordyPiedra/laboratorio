@@ -5,7 +5,7 @@ function add_examen(){
        $.each(detalle , function( key, value) {
            switch (value['name'].substring(0, 1)) {
                   case 'H':
-                   TIPO='HERMATOLÓGICO';
+                   TIPO='HEMATOLÓGICO';
                    break;
                    case 'U':
                    TIPO='UROANÁLISIS';
@@ -162,6 +162,13 @@ if(sum>max)
    toastr.info('Materiales insuficientes'); 
 }
 
+}
+function buscar_orden_byCED(){
+    if(cedulax($( "#CED__" ).val())==true){
+       $( "#CEDCLI" ).val($( "#CED__" ).val());
+        
+        $( "#frmbusced" ).trigger('submit');
+    }
 }
 
     //detalle_insumo

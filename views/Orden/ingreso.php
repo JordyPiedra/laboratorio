@@ -22,7 +22,7 @@
               <div class="panel-body">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#H" data-toggle="tab" aria-expanded="true">HERMATOLÓGICO</a>
+                                <li class="active"><a href="#H" data-toggle="tab" aria-expanded="true">HEMATOLÓGICO</a>
                                 </li>
                                 <li class=""><a href="#U" data-toggle="tab" aria-expanded="true">UROANÁLISIS</a>
                                 </li>

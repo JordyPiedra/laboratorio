@@ -28,7 +28,8 @@ function save_paciente_response(response){
 
  $( "#CED" ).focusout(function() {
      
-     if($( "#CED" ).val().length==10)
+     //if($( "#CED" ).val().length==10)
+     if(cedulax($( "#CED" ).val())==true)
    cargar_paciente();
    else{
         $('input').attr('disabled',true);  

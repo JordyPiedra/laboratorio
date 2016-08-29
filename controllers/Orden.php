@@ -146,6 +146,11 @@ class Orden extends Controller{
     }
 
     public function lista(){
+        $this->view->data['buscar']=true;
+        if(isset($_POST['CEDCLI']))
+        {
+            $this->view->data['ORDEN']=$this->model->select_allbYCED('%','%',$_POST['CEDCLI']) ;
+        }else
         $this->view->data['ORDEN']=$this->model->select_all('%',Session::getValue('CED_USU')) ;
         $this->view->render($this, "revision"); 
     }

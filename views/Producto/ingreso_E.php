@@ -20,7 +20,7 @@
                                         <div class="form-group col-lg-3" id="TIPsection">
                                             <label>TIPO DE EXÁMEN</label>
                                             <select id="TIP"  name="TIP"  class="form-control">
-                                                <option value="H"> HERMATOLÓGICO</option>
+                                                <option value="H"> HEMATOLÓGICO</option>
                                                 <option value="U"> UROANÁLISIS</option>
                                                 <option value="C"> COPROLÓGICO</option>
                                                 <option value="Q"> QUÍMICO SANGUÍNEO</option>

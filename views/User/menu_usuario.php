@@ -18,7 +18,7 @@
                                     <form role="form" id="frmuser">
                                         <div class="form-group col-lg-2">
                                             <label>Cédula</label>
-                                            <input required id="CED"  name="CED"  onkeypress="return soloNumeros(event)" class="form-control" placeholder="Nombres Completos">
+                                            <input required id="CED"  name="CED"  maxlength="10" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Cédula">
                                             
                                         </div>
                                         

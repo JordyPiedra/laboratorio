@@ -31,4 +31,13 @@ public function get_productoHist($COD_PRO){
 
 }
 
+public function getUser($CEDULA){
+  return $this->db->select('COD_USU, CED_USU, PRINOM_USU, SEGNOM_USU, PRIAPE_USU,
+   SEGAPE_USU, TIP_USU, ESTA_USU, FECCRE_USU',
+	  'USUARIO',
+	   "CED_USU = '$CEDULA'", PDO::FETCH_NUM);
+
+
+}
+
 }

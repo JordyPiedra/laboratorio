@@ -3,6 +3,27 @@
 
                 <div class="col-lg-12">
                     <h1 class="page-header">Exámenes Pendientes<i onclick ="location.reload();" class="fa  fa-refresh fa-fw"></i></h1>
+                     
+                     <?php
+                     if(isset($this->data['buscar'])){
+                         echo '
+                         
+                         <div class="form-group col-lg-3">
+                                            <input id="CED__"  name="CED__" onkeypress="return soloNumeros(event)" class="form-control" placeholder="Ingrese cédula a consultar    " maxlength="10">
+                                            
+                     </div>
+                     <div class="form-group col-lg-3">
+                                <button type="button"  onClick="buscar_orden_byCED();" class="btn btn-info"><i class="fa fa-search"></i></button>            
+                     </div>
+                         
+                         
+                         ';
+                     }
+                     
+                     ?>
+                     
+
+
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -77,6 +98,13 @@
 
  <!-- /.Final -->
 </div></div></div></body>
+
+<form role="form"  style="display:none;" id="frmbusced" action="<?=URL.'Orden/lista'?>" method="POST"  target="_blank" >
+<input id="CEDCLI"  name="CEDCLI" >
+<input type="submit" id="btn001">
+
+</form>
+
        <!-- /.scripts -->
         <script type="text/javascript">var URL='<?=  URL;?>';</script>
 <script type="text/javascript" src="<?=URL?>public/js/globalajax.js"></script>

@@ -176,7 +176,7 @@ echo '<option value="'.$value[0].'">'.$value[1].'</option>';
               $tipo="";
      switch ($value1[6]) {
                                             case 'H':
-                                               $tipo="HERMATOLÓGICO";
+                                               $tipo="HEMATOLÓGICO";
                                                 break;
                                             case 'U':
                                                 $tipo="UROANÁLISIS";

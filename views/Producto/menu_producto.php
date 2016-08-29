@@ -33,7 +33,7 @@
                                             
                                         </div>
                                          <div class="form-group col-lg-6">
-                                            <label>DESCRIPCION</label>
+                                            <label>DESCRIPCIÓN</label>
                                             <input  id="DESC" required name="DESC"  class="form-control" placeholder="Descripción del producto ">
                                             
                                         </div>
@@ -47,7 +47,7 @@
                                         <div class="form-group col-lg-3">
                                             <label>TIPO REACTIVO</label>
                                             <select id="TIP"  onchange="exameneslist();" name="TIP"  class="form-control">
-                                                <option value="H"> HERMATOLÓGICO</option>
+                                                <option value="H"> HEMATOLÓGICO</option>
                                                 <option value="U"> UROANÁLISIS</option>
                                                 <option value="C"> COPROLÓGICO</option>
                                                 <option value="Q"> QUÍMICO SANGUÍNEO</option>

@@ -1,6 +1,6 @@
        <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Registro Usuario</h1>
+                    <h1 class="page-header">Módulo de Reportes</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -18,18 +18,18 @@
                                  <form role="form" id="frmuser" action="<?=URL.'Reportes/general'?>" method="POST"  target="_blank" >
                                         <div class="form-group col-lg-2">
                                             <label>Fecha Inicial</label>
-                                            <input required id="FINI"  name="FINI" type="date" class="form-control" placeholder="Nombres Completos">
+                                            <input required id="FINI_"  name="FINI_" required type="date" class="form-control" placeholder="Nombres Completos">
                                             
                                         </div>
                                        <div class="form-group col-lg-2">
                                             <label>Fecha Final</label>
-                                            <input required id="FFIN"  name="FFIN" type="date" class="form-control" placeholder="Nombres Completos">
+                                            <input required id="FFIN_"  name="FFIN_" required type="date" class="form-control" placeholder="Nombres Completos">
                                             
                                         </div>
                                        
                                         <div class="form-group col-lg-4">
                                             <label>Reporte</label>
-                                            <select required id="TIP" name="TIP" class="form-control">
+                                            <select  id="TIP_" name="TIP_" class="form-control">
                                             <option value="2">Por Profesional</option>
                                             <option value ="1">Por Exámen</option>
                                             <option value ="3">Por Circuito</option>
@@ -39,7 +39,7 @@
    <div class="btn btn-primary" data-dismiss="modal" id="btn_guardar" onclick="consultar();">
                                                 Consultar
                                             </div>   
-                                            <input type="submit" style="display:none;">
+                                            <input type="submit" id="btn001" style="display:none;">
                                         </div>
  
                                      
@@ -62,7 +62,18 @@
 
  </div>    
   
-  
+<form role="form"  style="display:none;" id="frmuser_" action="<?=URL.'Reportes/general'?>" method="POST"  target="_blank" >
+<input required id="FINI"  name="FINI" required type="date" class="form-control" placeholder="Nombres Completos">
+<input required id="FFIN"  name="FFIN" required type="date" class="form-control" placeholder="Nombres Completos">
+<select  id="TIP" name="TIP" class="form-control">
+<option value="2">Por Profesional</option>
+<option value ="1">Por Exámen</option>
+<option value ="3">Por Circuito</option>
+
+<input type="submit" id="btn001">
+
+</form>
+
   
  <!-- /.Final -->
 </div></div></div></body>
@@ -80,7 +91,15 @@
 
     });
 function consultar(){
-    $('#frmuser').trigger('submit');
+    if(onclick_('#frmuser'))
+    {
+        $('#FINI').val($('#FINI_').val());
+        $('#FFIN').val($('#FFIN_').val());
+        $('#TIP').val($('#TIP_').val());
+        $('#frmuser_').trigger('submit');
+    }
+   
+
 }
         
 </script>

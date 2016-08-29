@@ -21,11 +21,11 @@ class User extends Controller{
          && isset($_POST['APE1']) && isset($_POST['PASS']) 
           && isset($_POST['TIP']) && isset($_POST['ESTA']))
           {
-              $USUARIO=['CED_USU' =>"'".$_POST['CED']  ."'",
-                        'PRINOM_USU' =>"'".$_POST['NOM1']  ."'",
-                        'PRIAPE_USU' =>"'". $_POST['APE1'] ."'",
-                        'SEGNOM_USU' =>"'".$_POST['NOM2']  ."'",
-                        'SEGAPE_USU' =>"'". $_POST['APE2'] ."'",
+              $USUARIO=['CED_USU' =>"'".$this->Mayus($_POST['CED']  )."'",
+                        'PRINOM_USU' =>"'".$this->Mayus($_POST['NOM1'] ) ."'",
+                        'PRIAPE_USU' =>"'". $this->Mayus($_POST['APE1'] )."'",
+                        'SEGNOM_USU' =>"'".$this->Mayus($_POST['NOM2'] ) ."'",
+                        'SEGAPE_USU' =>"'". $this->Mayus($_POST['APE2'] )."'",
                         'PAS_USU' =>"'".hash('sha256',$_POST['PASS']) ."'",
                         'TIP_USU' =>"'". $_POST['TIP'] ."'"];
              if($_POST['ESTA']=='1')
@@ -37,4 +37,18 @@ class User extends Controller{
         
     }
 
+    public function buscar(){
+        	if(isset($_POST['CEDUSU']))
+                {
+echo json_encode($this->model->getUser($_POST['CEDUSU']));
+
+                }
+    }
+
+
+
+    public function Mayus($variable) {
+		$variable = strtr(strtoupper($variable),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+		return $variable;
+		}
 }

@@ -32,7 +32,7 @@
                                             <input id="NOM"  name="NOM"  onkeypress="return soloLetras(event)" class="form-control" required placeholder="Nombre de Producto" disabled>
                                         </div>
                                          <div class="form-group col-lg-4">
-                                            <label>DESCRIPCION</label>
+                                            <label>DESCRIPCIÓN</label>
                                             <input  id="DESC" name="DESC"  required class="form-control" placeholder="Descripción del producto " disabled>
                                             
                                         </div>
@@ -40,7 +40,7 @@
                                         <div class="form-group col-lg-3">
                                             <label>TIPO REACTIVO</label>
                                             <select id="TIP"  onchange="exameneslist();" name="TIP"  class="form-control" disabled>
-                                                <option value="H"> HERMATOLÓGICO</option>
+                                                <option value="H"> HEMATOLÓGICO</option>
                                                 <option value="U"> UROANÁLISIS</option>
                                                 <option value="C"> COPROLÓGICO</option>
                                                 <option value="Q"> QUÍMICO SANGUÍNEO</option>
@@ -99,7 +99,7 @@
                                         </div>
                                        
                                          <div class="form-group col-lg-5">
-                                            <label>DESCRIPCION</label>
+                                            <label>DESCRIPCIÓN</label>
                                             <input  id="KDES" name="KDES"  class="form-control" required placeholder="Descripción del movimiento ">
                                             
                                         </div>
@@ -148,7 +148,7 @@
                                             <th>#</th>
                                             <th>MOVIMIENTO</th>
                                             <th>FECHA DE ORDEN</th>
-                                            <th>DESCRIPCION</th>
+                                            <th>DESCRIPCIÓN</th>
                                             <th>CANTIDAD</th>
                                              <th>SALDO</th>
 

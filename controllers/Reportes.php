@@ -18,25 +18,25 @@ public function general(){
     {
      if($_POST['TIP']==1)
      {
-          //$this->data['E']= $this->model->topExamen($_POST['FINI'],$_POST['FFIN']);
+          $this->view->data['E']= $this->model->topExamen($_POST['FINI'],$_POST['FFIN']);
            $this->view->data['T']=1;
-          $this->view->data['E']= $this->model->topExamen('2016-01-01','2016-12-31');
+          //$this->view->data['E']= $this->model->topExamen('2016-01-01','2016-12-31');
           //echo '<pre>';
           //var_dump($this->view->data['E']);
      }
       if($_POST['TIP']==2)
      {
-          //$this->data['E']= $this->model->topExamen($_POST['FINI'],$_POST['FFIN']);
+          $this->view->data['E']= $this->model->examen_doctor($_POST['FINI'],$_POST['FFIN']);
            $this->view->data['T']=2;
-          $this->view->data['E']= $this->model->examen_doctor('2016-01-01','2016-12-31');
+         // $this->view->data['E']= $this->model->examen_doctor('2016-01-01','2016-12-31');
           //echo '<pre>';
           //var_dump($this->view->data['E']);
      }
       if($_POST['TIP']==3)
      {
-          //$this->data['E']= $this->model->topExamen($_POST['FINI'],$_POST['FFIN']);
+          $this->view->data['E']= $this->model->examen_circuito($_POST['FINI'],$_POST['FFIN']);
            $this->view->data['T']=3;
-          $this->view->data['E']= $this->model->examen_circuito('2016-01-01','2016-12-31');
+          //$this->view->data['E']= $this->model->examen_circuito('2016-01-01','2016-12-31');
           //echo '<pre>';
           //var_dump($this->view->data['E']);
      }
